@@ -1,8 +1,10 @@
 #map {
-    height: 70%;
-    width: 70%;
+    display: inline-block;
+  height: 500px;
+    width: 1000px;
     margin: auto;
     border: 3px solid black;
+    margin-left: 500px;
   }
   
   html,
@@ -11,3 +13,12 @@
     margin: 0;
     padding: 0;
   }
+
+  .day-forecast {
+    display: inline-block;
+    width: 175px;
+    height: 210px;
+    background-color: red;
+    margin: 15px;
+  
+}
