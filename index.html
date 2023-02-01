@@ -16,8 +16,33 @@
 </head>
 
 <body>
-    <div id="map"></div>
 
+
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <!-- Left Side of Screen Start -->
+            <aside class="col-lg-3 col-md-3">
+                <!-- Some buttons for search -->
+                <div id="button-container" class="d-flex">
+                    <button type="button" class="btn btn-outline-success btn-lg">Large button</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+                </div>
+            </aside>
+            <!-- Left Side of Screen End -->
+            <!-- Right Side of Screen Start -->
+            <div class="col-lg-9 col-md-9">
+                <div id="map"></div>
+            </div>
+            <!-- Right Side of Screen End -->
+        </div>
+    </div>
+    <!-- Container End -->
+    <!-- Footer Start -->
+    <footer>
+
+    </footer>
+    <!-- Footer End -->
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -27,6 +52,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
         defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- JS -->
     <script src="./assets/js/maps.js"> </script>
 </body>
 
