@@ -18,27 +18,163 @@
 <body>
 
 
-    <!-- Container Start -->
-    <div class="container">
-        <div class="row">
-            <!-- Left Side of Screen Start -->
-            <aside class="col-lg-3 col-md-3">
-                <!-- Some buttons for search -->
-                <div id="button-container" class="d-flex">
-                    <button type="button" class="btn btn-outline-success btn-lg">Large button</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+    <!-- City search-->
+    <div class="container-fluid" style="max-width: 1400px">
+      <div class="row container-border">
+        <aside class="col-lg-3 pb-3">
+          <h2 id="form-heading" class="mt-1 h3 form-label">
+            Search for a City:
+          </h2>
+          <form id="search-form" class="form">
+            <div class="form-inline form-group">
+              <div class="input-group">
+                <input
+                  class="form-input weather-search"
+                  type="text"
+                  id="search-input"
+                  placeholder="London"
+                  aria-labelledby="form-heading"
+                  aria-controls="today forecast"
+                />
+
+                <div class="input-group-append">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block"
+                    id="search-button"
+                    aria-label="submit search"
+                  >
+                    Search
+                  </button>
                 </div>
-            </aside>
-            <!-- Left Side of Screen End -->
-            <!-- Right Side of Screen Start -->
-            <div class="col-lg-9 col-md-9">
-                <div id="map"></div>
+              </div>
             </div>
-            <!-- Right Side of Screen End -->
+          </form>
+          <div class="list-group" id="history">
+            <hr class="hr weather-hr" />
+<!-- Dropdown for the categories -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Pick a category
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#"> Museums</a> </li>
+    <li><a class="dropdown-item" href="#"> Airports</a> </li>
+    <li><a class="dropdown-item" href="#">  Accommodation </a> </li>
+  </ul>
+</div>
+            
+          </div>
+        </aside>
+
+          <!-- Second column: Displaying weather forecast -->
+
+          <div class="col-lg-9 pb-3">
+            <!-- Today box: City, Temp, Wind, humidity  -->
+            <section
+              id="today"
+              class="mt-3 container-border"
+              role="region"
+              aria-live="polite"
+            >
+              <!-- Today box display -->
+              <h1 id="selected-city-heading"> <img id="todays-icon"></h1>
+              <h2 id="selected-city-temp"></h2>
+              <h2 id="selected-city-wind"></h2>
+              <h2 id="selected-city-humidity"></h2>
+            </section>
+  
+            <!-- 5 day forcecast cards -->
+            <h2>5-day Forecast:</h2>
+  
+            <section
+              id="forecast"
+              class="row mt-3 hide"
+              role="region"
+              aria-live="polite"
+            >
+              <!-- Cards: Day 1-->
+              <div
+                class="card text-white bg-dark mb-3 day-forecast"
+                style="max-width: 18rem"
+              >
+                <div class="card-header" id="day-one-date"> Day 1</div>
+                <div class="card-body">
+                  <img class="weather-image" />
+                  <p id="day-one-temp"></p>
+                  <p id="day-one-wind"></p>
+                  <p id="day-one-humidity"></p>
+                </div>
+              </div>
+  
+              <!-- Cards: Day 2-->
+              <div
+                class="card text-white bg-dark mb-3 day-forecast"
+                style="max-width: 18rem"
+              >
+                <div class="card-header" id="day-two-date"> Day 2</div>
+                <div class="card-body">
+                  <img class="weather-image" />
+                  <p id="day-two-temp"></p>
+                  <p id="day-two-wind"></p>
+                  <p id="day-two-humidity"></p>
+                </div>
+              </div>
+  
+              <!-- Cards: Day 3-->
+              <div
+                class="card text-white bg-dark mb-3 day-forecast"
+                style="max-width: 18rem"
+              >
+                <div class="card-header" id="day-three-date"> Day 3</div>
+                <div class="card-body">
+                  <img class="weather-image" />
+                  <p id="day-three-temp"></p>
+                  <p id="day-three-wind"></p>
+                  <p id="day-three-humidity"></p>
+                </div>
+              </div>
+  
+              <!-- Cards: Day 4-->
+  
+              <div
+                class="card text-white bg-dark mb-3 day-forecast"
+                style="max-width: 18rem"
+              >
+                <div class="card-header" id="day-four-date"> Day 4</div>
+                <div class="card-body">
+                  <img class="weather-image" />
+                  <p id="day-four-temp"></p>
+                  <p id="day-four-wind"></p>
+                  <p id="day-four-humidity"></p>
+                </div>
+              </div>
+  
+              <!-- Cards: Day 5-->
+              <div
+                class="card text-white bg-dark mb-3 day-forecast"
+                style="max-width: 18rem"
+              >
+                <div class="card-header" id="day-five-date"> Day 5</div>
+                <div class="card-body">
+                  <img class="weather-image" />
+                  <p id="day-five-temp"></p>
+                  <p id="day-five-wind"></p>
+                  <p id="day-five-humidity"></p>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-    </div>
-    <!-- Container End -->
-    <!-- Footer Start -->
+      </div>
+
+        
+<!-- Map display -->
+<div id="map">
+
+</div>
+
+
     <footer>
 
     </footer>
