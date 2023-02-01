@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>Info Windows</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <!-- Page Title -->
+    <title>Plan My Trip</title>
+</head>
+
+<body>
+
+
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <!-- Left Side of Screen Start -->
+            <aside class="col-lg-3 col-md-3">
+                <!-- Some buttons for search -->
+                <div id="button-container" class="d-flex">
+                    <button type="button" class="btn btn-outline-success btn-lg">Large button</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+                </div>
+            </aside>
+            <!-- Left Side of Screen End -->
+            <!-- Right Side of Screen Start -->
+            <div class="col-lg-9 col-md-9">
+                <div id="map"></div>
+            </div>
+            <!-- Right Side of Screen End -->
+        </div>
+    </div>
+    <!-- Container End -->
+    <!-- Footer Start -->
+    <footer>
+
+    </footer>
+    <!-- Footer End -->
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <!-- Other APIs -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<<<<<<< HEAD
     <script src="./assets/js/maps.js"> </script>
     <link rel="stylesheet" href="./assets/styles/styles.css"/>
   </head>
@@ -14,4 +57,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer></script>
     <script src="assets/js/attractions.js"> </script>
   </body>
+=======
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- JS -->
+    <script src="./assets/js/maps.js"> </script>
+</body>
+
+>>>>>>> f1b41f0831f0fd6c24e4dfd31e6e0ada0a0b8b0f
 </html>
