@@ -3,7 +3,7 @@
 
 ## Description
 
-An app that allows you to find local attractions and the local weather conditions.
+An app that allows you to enter a city, then find local attractions and the local weather conditions in the area searched.
 
 ## Installation
 
