@@ -1,3 +1,5 @@
+/* Main styling */
+
 #map {
     display: inline-block;
   height: 500px;
@@ -14,6 +16,7 @@
     padding: 0;
   }
 
+/*  5-day forecast styling */
   .day-forecast {
     display: inline-block;
     width: 175px;
@@ -21,4 +24,13 @@
     background-color: red;
     margin: 15px;
   
+}
+
+/* Sidebar styling */
+aside {
+  margin-top: 90px;
+}
+
+.dropdown {
+  width:1000px;
 }
