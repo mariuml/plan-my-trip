@@ -7,26 +7,29 @@
 #map {
     display: flex;
   height: 500px;
-    width: 1000px;
+    width: 958px;
     margin: auto;
-    border: 3px solid black;
-    margin-left: 500px;
+    border: 2px solid black;
+    margin-left: 589px;
+    padding: 10px;
   }
-  
+  s
   html,
   body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: lightgoldenrodyellow;
   }
 
 /*  5-day forecast styling */
   .day-forecast {
     display: inline-block;
-    width: 175px;
-    height: 210px;
-    background-color: red;
-    margin: 15px;
+    width: 180px;
+    height: 200px;
+    background-color: white;
+    margin-left: 15px;
+    /* border: 2px solid black; */
   
 }
 
@@ -35,11 +38,26 @@ aside {
   margin-top: 90px;
 }
 
-.dropdown {
-  width:1000px;
+.dropdown-item {
+  width:200px;
+  background-color: white;
+  padding: .75rem;
+  border-radius: .25rem;
+  box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
 }
 
-.card-body{
-  color: white;
+
+.btn btn-primary btn-lg btn-block{
+  color: green;
 }
 
+.card-header {
+  background-color: lightblue;
+  border: 2px solid black;
+}
+
+h1{
+ font-family: 'Times New Roman', Times, serif;
+  color: black;
+  
+}
