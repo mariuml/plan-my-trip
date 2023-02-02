@@ -3,7 +3,7 @@ let zoom = 7;
 const sendCoords = (lat, lon) => {
     center.lat = lat;
     center.lng = lon;
-    zoom = 11;
+    zoom = 13;
 };
 
 const center = { lat: 51.509865, lng: -0.118092 };

@@ -13,24 +13,29 @@ $("#search-button").on("click", function (event) {
     "&appid=" +
     openWeatherAPIKey;
 
-// Ajax for weather
-$.ajax({
-  url: queryURL,
-  method: "GET",
-}).then(function (weatherResponse) {
-  console.log(weatherResponse);
+  // Ajax for weather
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (weatherResponse) {
+    console.log(weatherResponse);
 
-  // Get coordinates for openTrip
-  var cityLon = weatherResponse.coord.lon;
-  var cityLat = weatherResponse.coord.lat;
+    // Get coordinates for openTrip
+    var cityLon = weatherResponse.coord.lon;
+    var cityLat = weatherResponse.coord.lat;
 
-  // Send coordinates to GoogleMap API to center it;
-  sendCoords(cityLat, cityLon);
+    // Send coordinates to GoogleMap API to center it;
+    sendCoords(cityLat, cityLon);
 
     // TODO: Grab category/ies from dropdown ... Add to array?
     // For testing
     var category = "churches";
-    
+    // Build open trip query
+    // Min and max coordinates to plug into open trip
+    var longitudeMin = cityLon - 0.01;
+    var latitudeMin = cityLat - 0.01;
+    var longitudeMax = cityLon + 0.01;
+    var latitudeMax = cityLat + 0.01;
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
       longitudeMin +
@@ -57,17 +62,18 @@ $.ajax({
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-              // Sends pin locations to GoogleMap API
-      var object = { lat: 0, lng: 0 };
-      object.lat = lat;
-      object.lng = lon;
-      pinLocations.push(object);
+        // Sends pin locations to GoogleMap API
+        var object = { lat: 0, lng: 0 };
+        object.lat = lat;
+        object.lng = lon;
+        pinLocations.push(object);
 
-      // Sens titles to the map.
-      titles.push(tripResponse.features.properties.name);
+        // Sens titles to the map.
+        titles.push(tripResponse.features[i].properties.name);
 
-      // Sends WikiData to the map.
-      wikiData.push(tripResponse.features.properties.wikidata);
+        // Sends WikiData to the map.
+        wikiData.push(tripResponse.features[i].properties.wikidata);
+        initMap();
       }
     });
   });
