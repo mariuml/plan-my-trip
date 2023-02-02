@@ -17,12 +17,10 @@
 
 <body>
 
-   <!-- Heading at the top of the page -->
-   <header
-   class="container-fluid text-center p-2 weather-header"
- >
-   <h1>Plan My Trip</h1>
- </header>
+    <!-- Heading at the top of the page -->
+    <header class="container-fluid text-center p-2 weather-header">
+        <h1>Plan My Trip</h1>
+    </header>
 
     <!-- City search-->
     <div class="container-fluid" style="max-width: 1400px">
@@ -52,15 +50,16 @@
                     <hr class="hr weather-hr" />
                     <!-- Dropdown for the categories -->
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <button class="dropdown-item" type="button">Action</button>
-                          <button class="dropdown-item" type="button">Another action</button>
-                          <button class="dropdown-item" type="button">Something else here</button>
+                            <button class="dropdown-item" type="button">Action</button>
+                            <button class="dropdown-item" type="button">Another action</button>
+                            <button class="dropdown-item" type="button">Something else here</button>
                         </div>
-                      </div>
+                    </div>
 
                 </div>
             </aside>
@@ -82,59 +81,59 @@
 
                 <section id="forecast" class="row mt-3 hide" role="region" aria-live="polite">
                     <!-- Cards: Day 1-->
-                    <div class="card mb-3 day-forecast" style="max-width: 18rem">
-                        <div class="card-header" id="day-one-date"> Day 1</div>
+                    <div class="card mb-3 day-forecast" id="day1" style="max-width: 18rem">
+                        <!-- <div class="card-header" id="day-one-date"> Day 1</div>
                         <div class="card-body">
                             <img class="weather-image" />
                             <p id="day-one-temp"></p>
                             <p id="day-one-wind"></p>
                             <p id="day-one-humidity"></p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Cards: Day 2-->
-                    <div class="card mb-3 day-forecast" style="max-width: 18rem">
-                        <div class="card-header" id="day-two-date"> Day 2</div>
+                    <div class="card mb-3 day-forecast" id="day2" style="max-width: 18rem">
+                        <!-- <div class="card-header" id="day-two-date"> Day 2</div>
                         <div class="card-body">
                             <img class="weather-image" />
                             <p id="day-two-temp"></p>
                             <p id="day-two-wind"></p>
                             <p id="day-two-humidity"></p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Cards: Day 3-->
-                    <div class="card mb-3 day-forecast" style="max-width: 18rem">
-                        <div class="card-header" id="day-three-date"> Day 3</div>
+                    <div class="card mb-3 day-forecast" id="day3" style="max-width: 18rem">
+                        <!-- <div class="card-header" id="day-three-date"> Day 3</div>
                         <div class="card-body">
                             <img class="weather-image" />
                             <p id="day-three-temp"></p>
                             <p id="day-three-wind"></p>
                             <p id="day-three-humidity"></p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Cards: Day 4-->
 
-                    <div class="card mb-3 day-forecast" style="max-width: 18rem">
-                        <div class="card-header" id="day-four-date"> Day 4</div>
+                    <div class="card mb-3 day-forecast" id="day4" style="max-width: 18rem">
+                        <!-- <div class="card-header" id="day-four-date"> Day 4</div>
                         <div class="card-body">
                             <img class="weather-image" />
                             <p id="day-four-temp"></p>
                             <p id="day-four-wind"></p>
                             <p id="day-four-humidity"></p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Cards: Day 5-->
-                    <div class="card mb-3 day-forecast" style="max-width: 18rem">
-                        <div class="card-header" id="day-five-date"> Day 5</div>
+                    <div class="card mb-3 day-forecast" id="day5" style="max-width: 18rem">
+                        <!-- <div class="card-header" id="day-five-date"> Day 5</div>
                         <div class="card-body">
                             <img class="weather-image" />
                             <p id="day-five-temp"></p>
                             <p id="day-five-wind"></p>
                             <p id="day-five-humidity"></p>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
             </div>
@@ -155,25 +154,26 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <!-- Other APIs -->
+
+    <!-- APIs -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
         defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    
-     <!-- Bootstrap link -->
 
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
     <!-- JS -->
     <script src="./assets/js/keys.js"></script>
     <script src="./assets/js/attractions.js"></script>
     <script src="./assets/js/maps.js"> </script>
-
-   
 </body>
 
 </html>
