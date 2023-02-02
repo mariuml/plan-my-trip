@@ -23,6 +23,9 @@ $.ajax({
   var cityLon = weatherResponse.coord.lon;
   var cityLat = weatherResponse.coord.lat;
 
+  // Send coordinates to GoogleMap API to center it;
+  sendCoords(cityLat, cityLon);
+
   // Build open trip query
   // Min and max coordinates to plug into open trip
   var longitudeMin = cityLon - 0.01;
@@ -53,13 +56,22 @@ $.ajax({
     method: "GET",
   }).then(function (tripResponse) {
     console.log(tripResponse);
-
     // Get coordinates from results
     for (var i = 0; i < tripResponse.features.length; i++) {
       var lon = tripResponse.features[i].geometry.coordinates[0];
       var lat = tripResponse.features[i].geometry.coordinates[1];
 
-      console.log(lon, lat)
+      // Sends pin locations to GoogleMap API
+      var object = { lat: 0, lng: 0 };
+      object.lat = lat;
+      object.lng = lon;
+      pinLocations.push(object);
+
+      // Sens titles to the map.
+      titles.push(tripResponse.features.properties.name);
+
+      // Sends WikiData to the map.
+      wikiData.push(tripResponse.features.properties.wikidata);
     }
   });
 });
