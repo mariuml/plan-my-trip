@@ -1,7 +1,11 @@
 /* Main styling */
+*{
+  box-sizing: border-box;
+  /* display: flex; */
+}
 
 #map {
-    display: inline-block;
+    display: flex;
   height: 500px;
     width: 1000px;
     margin: auto;
@@ -34,3 +38,8 @@ aside {
 .dropdown {
   width:1000px;
 }
+
+.card-body{
+  color: white;
+}
+
