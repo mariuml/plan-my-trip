@@ -9,11 +9,35 @@ $("#search-button").on("click", function (event) {
 
   console.log(city);
   // For testing
+<<<<<<< HEAD
+  var category = "churches";
+
+
+
+
+
+
+  
+  var openTripAPIURL =
+    "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
+    longitudeMin +
+    "&lat_min=" +
+    latitudeMin +
+    "&lon_max=" +
+    longitudeMax +
+    "&lat_max=" +
+    latitudeMax +
+    "&kinds=" +
+    category +
+    "&format=geojson&apikey=" +
+    openTripAPIkey;
+=======
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     openWeatherAPIKey;
+>>>>>>> e40d97b84a865590aa66e0b49d0d55ec34b0a73a
 
   // Ajax for weather
   $.ajax({
