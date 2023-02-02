@@ -3,41 +3,15 @@
 
 // Build weather query
 $("#search-button").on("click", function (event) {
-  event.preventDefault()
-  // TODO: Grab city name from search
+  event.preventDefault();
+  // Grab city name from search
   var city = $("#search-input").val();
 
-  console.log(city)
-  // For testing
-<<<<<<< HEAD
-  var category = "churches";
-
-
-
-
-
-
-  
-  var openTripAPIURL =
-    "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
-    longitudeMin +
-    "&lat_min=" +
-    latitudeMin +
-    "&lon_max=" +
-    longitudeMax +
-    "&lat_max=" +
-    latitudeMax +
-    "&kinds=" +
-    category +
-    "&format=geojson&apikey=" +
-    openTripAPIkey;
-=======
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     openWeatherAPIKey;
->>>>>>> e40d97b84a865590aa66e0b49d0d55ec34b0a73a
 
   // Ajax for weather
   $.ajax({
@@ -50,16 +24,18 @@ $("#search-button").on("click", function (event) {
     var cityLon = weatherResponse.coord.lon;
     var cityLat = weatherResponse.coord.lat;
 
+    // Send coordinates to GoogleMap API to center it;
+    sendCoords(cityLat, cityLon);
+
+    // TODO: Grab category/ies from dropdown ... Add to array?
+    // For testing
+    var category = "churches";
     // Build open trip query
     // Min and max coordinates to plug into open trip
     var longitudeMin = cityLon - 0.01;
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
-
-    // TODO: Grab category/ies from dropdown ... Add to array?
-    // For testing
-    var category = "churches";
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
       longitudeMin +
@@ -86,7 +62,18 @@ $("#search-button").on("click", function (event) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        console.log(lon, lat);
+        // Sends pin locations to GoogleMap API
+        var object = { lat: 0, lng: 0 };
+        object.lat = lat;
+        object.lng = lon;
+        pinLocations.push(object);
+
+        // Sens titles to the map.
+        titles.push(tripResponse.features[i].properties.name);
+
+        // Sends WikiData to the map.
+        wikiData.push(tripResponse.features[i].properties.wikidata);
+        initMap();
       }
     });
   });

@@ -1,69 +1,81 @@
-// TESTING locations
-const userLoc = [];
 let zoom = 7;
-userLocation();
-
-// Function to get current user location.
-function userLocation() {
-const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0,
+// Center location.
+const sendCoords = (lat, lon) => {
+    center.lat = lat;
+    center.lng = lon;
+    zoom = 13;
 };
 
-function success(pos) {
-  const crd = pos.coords;
-  userLoc.push(crd.latitude);
-  userLoc.push(crd.longitude);
-  zoom = 11;
-  initMap();
-}
+const center = { lat: 51.509865, lng: -0.118092 };
 
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
+// // User Location 
+// const userLoc = [];
 
-navigator.geolocation.getCurrentPosition(success, error, options)
+// userLocation();
 
-}
+// // Function to get current user location.
+// function userLocation() {
+// const options = {
+//   enableHighAccuracy: true,
+//   timeout: 5000,
+//   maximumAge: 0,
+// };
+
+// // if it succeed it will push user lat and long to userLoc variable and zoom to 11 then refresh a map.
+// function success(pos) {
+//   const crd = pos.coords;
+//   user.push(crd.latitude);
+//   center.push(crd.longitude);
+//   zoom = 11;
+//   initMap();
+// };
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// };
+// navigator.geolocation.getCurrentPosition(success, error, options);
+// };
 
 
+
+  // Array of pin locations
+  const pinLocations = [];
+
+  // Received titles from Trip advisors API.
+  const titles = [];
+
+  // Received wiki data code.
+  const wikiData = [];
 
 function initMap() {
-  // One pin location
-  const peterborough = { lat: 52.573921, lng: -0.250830 };
-  
-  // Array of pin locations
-  const pinLocations = [ { lat: 52.573921, lng: -0.350830 }, { lat: 52.573921, lng: -0.250830 }, { lat: 52.673921, lng: -0.250830 }];
 
   // Centers map on a location
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: zoom,
-    center: peterborough,
+    center: center,
   });
+  // Loop throw pins
   for (let i = 0; i < pinLocations.length; i++) {
     // Pin description
     const contentString =
       '<div id="content">' +
       '<div id="siteNotice">' +
       "</div>" +
-      '<h1 id="firstHeading" class="firstHeading">Peterborough</h1>' +
+      '<h1 id="firstHeading" class="firstHeading">'+ titles[i] +'</h1>' +
       '<div id="bodyContent">' +
-      "<p>peterborough is a large " +
-      "(last visited June 22, 2009).</p>" +
+      "<p>"+ wikiData +"</p>" +
       "</div>" +
       "</div>";
 
     // Pin infoWindow content
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
-      ariaLabel: "peterborough",
+      ariaLabel: titles[i],
     });
 
     const marker = new google.maps.Marker({
       position: pinLocations[i],
       map,
-      title: "peterborough",
+      title: titles[i],
     });
 
     marker.addListener("click", () => {

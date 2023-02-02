@@ -7,13 +7,13 @@
 #map {
     display: flex;
   height: 500px;
-    width: 1000px;
+    width: 958px;
     margin: auto;
-    border: 3px solid black;
-    margin-left: 250px;
+    border: 2px solid black;
+    margin-left: 589px;
     padding: 10px;
   }
-  
+  s
   html,
   body {
     height: 100%;
@@ -29,6 +29,7 @@
     height: 200px;
     background-color: white;
     margin-left: 15px;
+    /* border: 2px solid black; */
   
 }
 
@@ -52,6 +53,7 @@ aside {
 
 .card-header {
   background-color: lightblue;
+  border: 2px solid black;
 }
 
 h1{
