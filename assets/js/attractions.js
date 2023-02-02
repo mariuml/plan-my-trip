@@ -75,6 +75,7 @@ $("#search-button").on("click", function (event) {
         wikiData.push(tripResponse.features[i].properties.wikidata);
         initMap();
       }
+      $("#search-input").val("");
     });
 
     var queryURLForecast =
