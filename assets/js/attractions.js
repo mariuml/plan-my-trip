@@ -33,6 +33,13 @@ $.ajax({
   // TODO: Grab category/ies from dropdown ... Add to array?
   // For testing
   var category = "churches";
+
+
+
+
+
+
+  
   var openTripAPIURL =
     "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
     longitudeMin +
