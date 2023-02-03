@@ -8,32 +8,32 @@ const sendCoords = (lat, lon) => {
 
 const center = { lat: 51.509865, lng: -0.118092 };
 
-// User Location 
-const userLoc = [];
+// // User Location 
+// const userLoc = [];
 
-userLocation();
+// userLocation();
 
-// Function to get current user location.
-function userLocation() {
-const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0,
-};
+// // Function to get current user location.
+// function userLocation() {
+// const options = {
+//   enableHighAccuracy: true,
+//   timeout: 5000,
+//   maximumAge: 0,
+// };
 
-// if it succeed it will push user lat and long to userLoc variable and zoom to 11 then refresh a map.
-function success(pos) {
-  const crd = pos.coords;
-  center.lat = crd.latitude;
-  center.lng = crd.longitude;
-  zoom = 13;
-  initMap();
-};
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-};
-navigator.geolocation.getCurrentPosition(success, error, options);
-};
+// // if it succeed it will push user lat and long to userLoc variable and zoom to 11 then refresh a map.
+// function success(pos) {
+//   const crd = pos.coords;
+//   center.lat = crd.latitude;
+//   center.lng = crd.longitude;
+//   zoom = 13;
+//   initMap();
+// };
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// };
+// navigator.geolocation.getCurrentPosition(success, error, options);
+// };
 
 
 
@@ -63,9 +63,6 @@ function initMap() {
       '<a href="https://www.wikidata.org/wiki/'+ wikiData[i] +'" target="_blank">Click here for description!</a>' +
       "</div>" +
       "</div>";
-    console.log(wikiData[i])
-    console.log(titles[i]);
-    console.log(pinLocations[i])
     // Pin infoWindow content
     const infowindow = new google.maps.InfoWindow({
       content: contentString,

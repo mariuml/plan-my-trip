@@ -5,15 +5,14 @@
 }
 
 #map {
-    display: flex;
-  height: 500px;
+    height: 500px;
     width: 958px;
     margin: auto;
     border: 2px solid black;
-    margin-left: 589px;
+
     padding: 10px;
   }
-  s
+  
   html,
   body {
     height: 100%;

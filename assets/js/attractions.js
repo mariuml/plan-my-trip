@@ -52,8 +52,8 @@ $("#search-button").on("click", function (event) {
   $.ajax({
     url: queryURL,
     method: "GET",
+    async: false
   }).then(function (weatherResponse) {
-    // console.log(weatherResponse);
 
     // Get coordinates for openTrip
     var cityLon = weatherResponse.coord.lon;
@@ -89,13 +89,14 @@ $("#search-button").on("click", function (event) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
-      // console.log(tripResponse);
+
 
       // Get coordinates from results
       for (var i = 0; i < tripResponse.features.length; i++) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
+        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== ''){
         // Sends pin locations to GoogleMap API
         var object = { lat: 0, lng: 0 };
         object.lat = lat;
@@ -107,8 +108,9 @@ $("#search-button").on("click", function (event) {
 
         // Sends WikiData to the map.
         wikiData.push(tripResponse.features[i].properties.wikidata);
-        initMap();
-      }
+        };
+      };
+      initMap();
       $("#search-input").val("");
     });
 
@@ -185,5 +187,5 @@ $("#search-button").on("click", function (event) {
         day += 1;
       }
     });
-  });
+});
 });
