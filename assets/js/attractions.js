@@ -96,16 +96,15 @@ $("#search-button").on("click", function (event) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== ''){
+        if (tripResponse.features[i].properties.name !== ''){
         // Sends pin locations to GoogleMap API
         var object = { lat: 0, lng: 0 };
         object.lat = lat;
         object.lng = lon;
         pinLocations.push(object);
-
+          console.log(tripResponse.features[i].properties.name)
         // Sends titles to the map.
         titles.push(tripResponse.features[i].properties.name);
-
         // Sends WikiData to the map.
         wikiData.push(tripResponse.features[i].properties.wikidata);
         };

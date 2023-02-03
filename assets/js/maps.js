@@ -45,7 +45,7 @@ const center = { lat: 51.509865, lng: -0.118092 };
 
   // Received wiki data code.
   let wikiData = [];
-
+  let wikiLink = ''
 function initMap() {
 
   // Centers map on a location
@@ -55,12 +55,18 @@ function initMap() {
   });
   // Loop throw pins
   for (let i = 0; i < pinLocations.length; i++) {
+    let wikiLink = '';
+    if (wikiData[i] !== undefined) {
+      wikiLink = '<a href="https://www.wikidata.org/wiki/'+ wikiData[i] +'" target="_blank">Click here for description!</a>'
+    } else {
+      wikiLink = "<p>It doesn't have wikidata. We need to write something here! :D</p>"
+    }
     // Pin description
     const contentString =
-      '<div id="content">' +
-      '<h1 id="heading">'+ titles[i] +'</h1>' +
-      '<div id="bodyContent">' +
-      '<a href="https://www.wikidata.org/wiki/'+ wikiData[i] +'" target="_blank">Click here for description!</a>' +
+      '<div id="mapContent">' +
+      '<h1 id="mapHeading">'+ titles[i] +'</h1>' +
+      '<div id="mapBodyContent">' +
+      wikiLink +
       "</div>" +
       "</div>";
     // Pin infoWindow content
@@ -68,7 +74,7 @@ function initMap() {
       content: contentString,
       ariaLabel: titles[i],
     });
-
+    // Pin location
     const marker = new google.maps.Marker({
       position: pinLocations[i],
       map,
@@ -82,5 +88,7 @@ function initMap() {
       });
     });
   };
-
+  // Empty pins array for next call.
+  titles = [];
+  wikiData = [];
 };
