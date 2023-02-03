@@ -1,4 +1,35 @@
-// Open Weather API
+
+ // TODO: Grab category/ies from dropdown ... Add to array?
+    // For testing
+
+    var categoriesArray = [
+      "historic", "cultural", "natural", "religion", "banks", "foods"
+    ];
+    
+    // Add categories array to drop-down
+    
+    for (var i = 0; i < categoriesArray.length; i++) {
+
+    var dropdownButton = $('<button class="dropdown-item" type="button">').text(categoriesArray[i]);
+    $("#categories-menu").append(dropdownButton);
+
+
+    }
+
+    // Add a click event to save the value of the dropdown selection
+
+    $("categories-menu").on("click", function (event) {
+      console.log("the click works");
+      var categorySelection = $(".dropdown-item").val();
+      console.log(categorySelection);
+ 
+
+    });
+
+
+
+
+// / Open Weather API
 // Get weather info and longitude and latitude of city
 
 // Build weather query
@@ -9,35 +40,14 @@ $("#search-button").on("click", function (event) {
 
   console.log(city)
   // For testing
-<<<<<<< HEAD
-  var category = "churches";
+// Add  click selector
 
-
-
-
-
-
-  
-  var openTripAPIURL =
-    "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
-    longitudeMin +
-    "&lat_min=" +
-    latitudeMin +
-    "&lon_max=" +
-    longitudeMax +
-    "&lat_max=" +
-    latitudeMax +
-    "&kinds=" +
-    category +
-    "&format=geojson&apikey=" +
-    openTripAPIkey;
-=======
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     openWeatherAPIKey;
->>>>>>> e40d97b84a865590aa66e0b49d0d55ec34b0a73a
+
 
   // Ajax for weather
   $.ajax({
@@ -57,9 +67,9 @@ $("#search-button").on("click", function (event) {
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
 
-    // TODO: Grab category/ies from dropdown ... Add to array?
-    // For testing
-    var category = "churches";
+
+// Choosing a category
+var category = "churches";
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
       longitudeMin +
