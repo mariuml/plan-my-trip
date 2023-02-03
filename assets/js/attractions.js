@@ -96,15 +96,16 @@ $("#search-button").on("click", function (event) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name !== ''){
+        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== ''){
         // Sends pin locations to GoogleMap API
         var object = { lat: 0, lng: 0 };
         object.lat = lat;
         object.lng = lon;
         pinLocations.push(object);
-          console.log(tripResponse.features[i].properties.name)
+
         // Sends titles to the map.
         titles.push(tripResponse.features[i].properties.name);
+
         // Sends WikiData to the map.
         wikiData.push(tripResponse.features[i].properties.wikidata);
         };
@@ -127,7 +128,9 @@ $("#search-button").on("click", function (event) {
       url: queryURLForecast,
       method: "GET",
     }).then(function (forecastResponse) {
+      // Define day to be used for forecast
       var day = 1;
+      
       var result = forecastResponse.list;
       // Forecast shown for 3 -hour blocks for 5 days
       // Loop through in intervals of 8 beginning from 3
@@ -137,12 +140,10 @@ $("#search-button").on("click", function (event) {
         var forecastBlock = $('<div class="card-body">');
 
         // Info for forecast date
-        // var forecastDate = $("<p>");
-        // var forecastDateConv = moment(
-        //   result[i].dt_txt,
-        //   "YYYY-MM-D HH:mm:ss"
-        // ).format("D/MM/YYYY");
-        // forecastDate.text(forecastDateConv);
+        var forecastDateConv = moment(
+          result[i].dt_txt,
+          "YYYY-MM-D HH:mm:ss"
+        ).format("DD/MM/YY");
 
         // Forecasted weather icon
         var forecastIconURL =
@@ -174,14 +175,16 @@ $("#search-button").on("click", function (event) {
           forecastHumidity
         );
 
-        // Info for the card header div
-        var forecastDay = $(
-          `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
-        );
+        // // Info for the card header div
+      var forecastDay = $(`#day${day}-date`).text(`Day ${day} - ${forecastDateConv}`)
+
+        // var forecastDay = $(
+        //   `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
+        // );
 
         // Clear
-        // $("#day" + day + " div:last").remove();
-        $("#day" + day).empty();
+        $("#day" + day + " :nth-child(2)").remove();
+        // $("#day" + day).empty();
         $("#day" + day).append(forecastDay, forecastBlock);
         day += 1;
       }
