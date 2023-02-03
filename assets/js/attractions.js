@@ -1,33 +1,33 @@
+// Categories logic
 
- // TODO: Grab category/ies from dropdown ... Add to array?
-    // For testing
+// GLOBAL VARIABLES
+var categoriesArray = [
+  "historic",
+  "cultural",
+  "natural",
+  "religion",
+  "banks",
+  "foods",
+];
 
-    var categoriesArray = [
-      "historic", "cultural", "natural", "religion", "banks", "foods"
-    ];
-    
-    // Add categories array to drop-down
-    
-    for (var i = 0; i < categoriesArray.length; i++) {
+var category;
 
-    var dropdownButton = $('<button class="dropdown-item" type="button">').text(categoriesArray[i]);
-    $("#categories-menu").append(dropdownButton);
+// Add categories array to drop-down
+for (var i = 0; i < categoriesArray.length; i++) {
+  var dropdownButton = $('<button class="dropdown-item" type="button">').text(
+    categoriesArray[i]
+  );
+  $("#categories-menu").append(dropdownButton);
+}
 
+// Add a click event to save the value of the dropdown selection
 
-    }
+$(".dropdown-item").on("click", function (event) {
 
-    // Add a click event to save the value of the dropdown selection
-
-    $("categories-menu").on("click", function (event) {
-      console.log("the click works");
-      var categorySelection = $(".dropdown-item").val();
-      console.log(categorySelection);
- 
-
-    });
-
-
-
+  // Setting global category variable as user selection
+  category = event.target.innerHTML;
+  console.log(category);
+});
 
 // / Open Weather API
 // Get weather info and longitude and latitude of city
@@ -38,22 +38,15 @@ $("#search-button").on("click", function (event) {
   // Grab city name from search
   var city = $("#search-input").val();
 
-<<<<<<< HEAD
-  console.log(city)
+  console.log(city);
   // For testing
-// Add  click selector
+  // Add  click selector
 
-=======
->>>>>>> a77966280d81d135c40180379a5173b3c632796d
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     openWeatherAPIKey;
-<<<<<<< HEAD
-
-=======
->>>>>>> a77966280d81d135c40180379a5173b3c632796d
 
   // Ajax for weather
   $.ajax({
@@ -68,23 +61,15 @@ $("#search-button").on("click", function (event) {
 
     // Send coordinates to GoogleMap API to center it;
     sendCoords(cityLat, cityLon);
-
-    // TODO: Grab category/ies from dropdown ... Add to array?
-    // For testing
-    var category = "churches";
+     
     // Build open trip query
     // Min and max coordinates to plug into open trip
     var longitudeMin = cityLon - 0.01;
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
-<<<<<<< HEAD
 
-
-// Choosing a category
-var category = "churches";
-=======
->>>>>>> a77966280d81d135c40180379a5173b3c632796d
+    // Making a call to OpenTrip API based on user input 
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
       longitudeMin +
@@ -199,7 +184,7 @@ var category = "churches";
         // Clear
         // $("#day" + day + " div:last").remove();
         $("#day" + day).empty();
-        $("#day" + day).append(forecastDay,forecastBlock);
+        $("#day" + day).append(forecastDay, forecastBlock);
         day += 1;
 
         console.log(day);
