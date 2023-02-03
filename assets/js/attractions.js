@@ -10,7 +10,8 @@ var categoriesArray = [
   "foods",
 ];
 
-var category;
+// Default category
+var category = 'cultural';
 
 // Add categories array to drop-down
 for (var i = 0; i < categoriesArray.length; i++) {
@@ -23,7 +24,6 @@ for (var i = 0; i < categoriesArray.length; i++) {
 // Add a click event to save the value of the dropdown selection
 
 $(".dropdown-item").on("click", function (event) {
-
   // Setting global category variable as user selection
   category = event.target.innerHTML;
   console.log(category);
@@ -38,10 +38,10 @@ $("#search-button").on("click", function (event) {
   // Grab city name from search
   var city = $("#search-input").val();
 
-  console.log(city);
-  // For testing
-  // Add  click selector
+  // Check city
+  // console.log(city);
 
+  // Create URL
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -53,7 +53,7 @@ $("#search-button").on("click", function (event) {
     url: queryURL,
     method: "GET",
   }).then(function (weatherResponse) {
-    console.log(weatherResponse);
+    // console.log(weatherResponse);
 
     // Get coordinates for openTrip
     var cityLon = weatherResponse.coord.lon;
@@ -61,7 +61,7 @@ $("#search-button").on("click", function (event) {
 
     // Send coordinates to GoogleMap API to center it;
     sendCoords(cityLat, cityLon);
-     
+
     // Build open trip query
     // Min and max coordinates to plug into open trip
     var longitudeMin = cityLon - 0.01;
@@ -69,7 +69,7 @@ $("#search-button").on("click", function (event) {
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
 
-    // Making a call to OpenTrip API based on user input 
+    // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
       longitudeMin +
@@ -89,7 +89,7 @@ $("#search-button").on("click", function (event) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
-      console.log(tripResponse);
+      // console.log(tripResponse);
 
       // Get coordinates from results
       for (var i = 0; i < tripResponse.features.length; i++) {
@@ -102,7 +102,7 @@ $("#search-button").on("click", function (event) {
         object.lng = lon;
         pinLocations.push(object);
 
-        // Sens titles to the map.
+        // Sends titles to the map.
         titles.push(tripResponse.features[i].properties.name);
 
         // Sends WikiData to the map.
@@ -112,6 +112,7 @@ $("#search-button").on("click", function (event) {
       $("#search-input").val("");
     });
 
+    // Create URL
     var queryURLForecast =
       "https://api.openweathermap.org/data/2.5/forecast?lat=" +
       cityLat +
@@ -154,15 +155,15 @@ $("#search-button").on("click", function (event) {
         var forecastTemp = $("<p>");
         var forecastTempConv = result[i].main.temp - 273.15;
         forecastTempConv = forecastTempConv.toFixed(2);
-        forecastTemp.text("Temp: " + forecastTempConv + " °C");
+        forecastTemp.text(`Temp: ${forecastTempConv} °C`);
 
         // Info for forecasted wind speed
         var forecastWind = $("<p>");
-        forecastWind.text("Wind: " + result[i].wind.speed + "KpH");
+        forecastWind.text(`Wind: ${result[i].wind.speed} + KpH`);
 
         // Info for forecasted humidty
         var forecastHumidity = $("<p>");
-        forecastHumidity.text("Humidity: " + result[i].main.humidity + "%");
+        forecastHumidity.text(`Humidity: ${result[i].main.humidity} %`);
 
         // All the weather info into one div
         forecastBlock.append(
@@ -174,11 +175,7 @@ $("#search-button").on("click", function (event) {
 
         // Info for the card header div
         var forecastDay = $(
-          '<div class="card-header" id="day' +
-            day +
-            '-date" >Day ' +
-            day +
-            "</div>"
+          `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
         );
 
         // Clear
@@ -186,8 +183,6 @@ $("#search-button").on("click", function (event) {
         $("#day" + day).empty();
         $("#day" + day).append(forecastDay, forecastBlock);
         day += 1;
-
-        console.log(day);
       }
     });
   });
