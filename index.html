@@ -35,39 +35,22 @@
                         <div class="input-group">
                             <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
                                 aria-labelledby="form-heading" aria-controls="today forecast" />
-
-                            <div class="input-group-append">
-                                <br>
-                                <br>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" id="search-button"
-                                    aria-label="submit search">
-                                    Search
+                            <!-- Dropdown for the categories -->
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select an attraction category
                                 </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id=categories-menu></div>
                             </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" id="search-button"
+                                aria-label="submit search">
+                                Search
+                            </button>
+
                         </div>
                     </div>
                 </form>
-                <div class="list-group" id="history">
-                    <hr class="hr weather-hr" />
-                    <!-- Dropdown for the categories -->
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select an attraction category 
-                        </button>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id=categories-menu>
-                
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">Action</button>
-                            <button class="dropdown-item" type="button">Another action</button>
-                            <button class="dropdown-item" type="button">Something else here</button>
-
-                        </div>
-                    </div>
-
-                </div>
             </aside>
 
             <!-- Second column: Displaying weather forecast -->
@@ -144,16 +127,13 @@
                     </div>
                     <div id="map" class="col-8 col-md-8 col-lg-12 "></div>
                 </section>
-                   <!-- Map display -->
-    <div id="map">
 
-    </div>
             </div>
         </div>
     </div>
 
 
- 
+
 
     <!-- Footer Start -->
     <footer>
