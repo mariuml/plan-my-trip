@@ -24,9 +24,9 @@ const center = { lat: 51.509865, lng: -0.118092 };
 // // if it succeed it will push user lat and long to userLoc variable and zoom to 11 then refresh a map.
 // function success(pos) {
 //   const crd = pos.coords;
-//   user.push(crd.latitude);
-//   center.push(crd.longitude);
-//   zoom = 11;
+//   center.lat = crd.latitude;
+//   center.lng = crd.longitude;
+//   zoom = 13;
 //   initMap();
 // };
 // function error(err) {
@@ -41,11 +41,11 @@ const center = { lat: 51.509865, lng: -0.118092 };
   const pinLocations = [];
 
   // Received titles from Trip advisors API.
-  const titles = [];
+  let titles = [];
 
   // Received wiki data code.
-  const wikiData = [];
-
+  let wikiData = [];
+  let wikiLink = ''
 function initMap() {
 
   // Centers map on a location
@@ -55,23 +55,26 @@ function initMap() {
   });
   // Loop throw pins
   for (let i = 0; i < pinLocations.length; i++) {
+    let wikiLink = '';
+    if (wikiData[i] !== undefined) {
+      wikiLink = '<a href="https://www.wikidata.org/wiki/'+ wikiData[i] +'" target="_blank">Click here for description!</a>'
+    } else {
+      wikiLink = "<p>It doesn't have wikidata. We need to write something here! :D</p>"
+    }
     // Pin description
     const contentString =
-      '<div id="content">' +
-      '<div id="siteNotice">' +
-      "</div>" +
-      '<h1 id="firstHeading" class="firstHeading">'+ titles[i] +'</h1>' +
-      '<div id="bodyContent">' +
-      "<p>"+ wikiData +"</p>" +
+      '<div id="mapContent">' +
+      '<h1 id="mapHeading">'+ titles[i] +'</h1>' +
+      '<div id="mapBodyContent">' +
+      wikiLink +
       "</div>" +
       "</div>";
-
     // Pin infoWindow content
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
       ariaLabel: titles[i],
     });
-
+    // Pin location
     const marker = new google.maps.Marker({
       position: pinLocations[i],
       map,
@@ -85,4 +88,7 @@ function initMap() {
       });
     });
   };
+  // Empty pins array for next call.
+  titles = [];
+  wikiData = [];
 };
