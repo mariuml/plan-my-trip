@@ -35,37 +35,22 @@
                         <div class="input-group">
                             <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
                                 aria-labelledby="form-heading" aria-controls="today forecast" />
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" id="search-button"
-                                aria-label="submit search">
-                                Search
-                            </button>
-                            <!-- Dropdown for the categories -->
-                            <div class="dropdown">
+                             <!-- Dropdown for the categories -->
+                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Select an attraction category
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2" id=categories-menu></div>
                             </div>
-                            
-
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" id="search-button"
+                            aria-label="submit search">
+                            Search
+                        </button>
                         </div>
                     </div>
                 </form>
             </aside>
-
-            <!-- Second column: Displaying weather forecast -->
-
-            <div class="col-lg-9 pb-3">
-                <!-- Today box: City, Temp, Wind, humidity  -->
-                <section id="today" class="mt-3 container-border" role="region" aria-live="polite">
-                    <!-- Today box display -->
-                    <h1 id="selected-city-heading"> <img id="todays-icon"></h1>
-                    <h2 id="selected-city-temp"></h2>
-                    <h2 id="selected-city-wind"></h2>
-                    <h2 id="selected-city-humidity"></h2>
-                </section>
-
                 <!-- 5 day forcecast cards -->
                 <h2>5-day Forecast:</h2>
 
@@ -123,12 +108,13 @@
                             <p id="day-five-temp"></p>
                             <p id="day-five-wind"></p>
                             <p id="day-five-humidity"></p>
-                        </div>
-                        <!-- Map display -->
+                        </div> -->
+
                     </div>
-                    <div id="map" class="col-8 col-md-8 col-lg-12 "></div>
+
                 </section>
-                   
+                <!-- Map display -->
+                <div id="map" class="col-8 col-md-8 col-lg-12 "></div>
    
             </div>
         </div>
