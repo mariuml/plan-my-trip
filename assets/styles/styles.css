@@ -4,32 +4,25 @@
   /* display: flex; */
 }
 
-#map {
-    display: flex;
-  height: 500px;
-    width: 958px;
-    margin: auto;
-    border: 2px solid black;
-    margin-left: 589px;
-    padding: 10px;
-  }
-  s
+  
   html,
   body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: lightgoldenrodyellow;
+    background-image: url(../../images/annie-spratt-qyAka7W5uMY-unsplash.jpg);
   }
 
 /*  5-day forecast styling */
   .day-forecast {
-    display: inline-block;
-    width: 180px;
+  
+    width: 190px;
     height: 200px;
     background-color: white;
-    margin-left: 15px;
-    /* border: 2px solid black; */
+    margin-left: 20px;
+    border: 1px solid rgba(0,0,0,.5);
+  
+    
   
 }
 
@@ -52,8 +45,8 @@ aside {
 }
 
 .card-header {
-  background-color: lightblue;
-  border: 2px solid black;
+  background-color: lightgreen;
+  border: 0.5px solid black;
 }
 
 h1{
@@ -61,3 +54,31 @@ h1{
   color: black;
   
 }
+
+.forecast {
+  border: 1px solid black;
+}
+
+#map {
+    display: flex;
+  height: 500px;
+    width: 950px !important;
+    margin: auto;
+    border: 4px solid black;
+    /* margin-left: 1000px */
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .card {
+    border: 4px solid black;
+  }
+  
+  .title {
+    background-color: rgba(0,0,0,.4);
+    padding-top: 60px;
+    text-align: center;
+    text-decoration: solid;
+    font-size: 50px;
+    font-weight: 400;
+  }
