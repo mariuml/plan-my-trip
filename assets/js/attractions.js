@@ -64,10 +64,11 @@ $("#search-button").on("click", function (event) {
 
     // Build open trip query
     // Min and max coordinates to plug into open trip
-    var longitudeMin = cityLon - 0.01;
-    var latitudeMin = cityLat - 0.01;
-    var longitudeMax = cityLon + 0.01;
-    var latitudeMax = cityLat + 0.01;
+    var coordMargin = 0.0055
+    var longitudeMin = cityLon - coordMargin;
+    var latitudeMin = cityLat - coordMargin;
+    var longitudeMax = cityLon + coordMargin;
+    var latitudeMax = cityLat + coordMargin;
 
     // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
