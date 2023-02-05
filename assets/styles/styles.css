@@ -1,30 +1,33 @@
 /* Main styling */
-*{
+* {
   box-sizing: border-box;
-  
+
 }
 
-  
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-image: url(../../images/martin-de-arriba-0c_w3_hfEco-unsplash.jpg);
-  }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url(../../images/annie-spratt-qyAka7W5uMY-unsplash.jpg);
+}
 
 
 /*  5-day forecast styling */
-  .day-forecast {
-  
-    width: 190px;
-    height: 275px;
-    background-color: white;
-    margin-left: 20px;
-  }
+.day-forecast {
+
+  width: 190px;
+  height: 275px;
+  background-color: white;
+  margin-left: 20px;
+}
 
 /* Sidebar styling */
-aside div, input, .dropdown-toggle, h2{
+aside div,
+input,
+.dropdown-toggle,
+h2 {
   text-align: center;
   display: block;
   width: 100%;
@@ -36,24 +39,25 @@ aside input {
   border-radius: 2%;
   border: none;
 }
+
 .dropdown-item {
-  width:200px;
+  width: 200px;
   background-color: white;
   padding: .75rem;
   border-radius: .25rem;
-  box-shadow:0 2px 5px 0 rgba(0,0,0,.8);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .8);
 }
 
 
 .card-header {
-  background-color:#1E90FF;
+  background-color: #1E90FF;
   border: 0.5px solid white;
 }
 
-h1{
- font-family: 'Times New Roman', Times, serif;
+h1 {
+  font-family: 'Times New Roman', Times, serif;
   color: black;
-  
+
 }
 
 .forecast {
@@ -61,22 +65,36 @@ h1{
 }
 
 #map {
-    display: flex;
+  display: flex;
   height: 500px;
-    width: 950px !important;
-    margin: auto;
-    border: 4px solid white;
-    
-    padding: 10px;
-    margin-top: 50px;
-  }
+  width: 950px !important;
+  margin: auto;
+  border: 4px solid white;
 
-  .card {
-    border: 4px solid white;
-    background-color: lightskyblue
-   
-  }
-  
+  padding: 10px;
+  margin-top: 50px;
+}
 
+.card {
+  border: 4px solid lightslategray;
+  background-color: white 
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 
- 
+}
+
+.title {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  font-size: 125px;
+  font-weight: 300;
+  font-family: cursive;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+h2 {
+  padding-top: 100px;
+}
