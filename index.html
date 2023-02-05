@@ -28,21 +28,20 @@
     <div class="container-fluid" style="max-width: 1400px">
         <div id="map-search-row" class="row container-border">
             <aside class="col-lg-4 col-md-4 pb-3">
-                <!-- <br>
-                <br>
-                <br>
-                <br>
-                <br> -->
-                <div id="form-heading">
+
+                <!-- Search heading -->
+                <div id="form-heading" class="search-section-headings">
                     <h2><strong>Search for a City</strong>
                     </h2>
                 </div>
 
+                <!-- Search input -->
                 <form id="search-form" class="form">
                     <div class="form-inline form-group">
                         <div class="input-group">
                             <input class="form-input weather-search" type="text" id="search-input"
                                 placeholder="City Name" aria-labelledby="form-heading" aria-controls="today forecast" />
+
                             <!-- Dropdown for the categories -->
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
@@ -58,6 +57,12 @@
                         </div>
                     </div>
                 </form>
+
+                <!-- Search history -->
+                <section id="search-history">
+                    <h2 class="search-section-headings">Search History</h2>
+                    <div id="history-buttons"></div>
+                </section>
             </aside>
 
             <!-- Map display -->
@@ -100,6 +105,8 @@
                         <div class="card-header" id="day5-date"> Day 5</div>
                     </div>
                 </div>
+
+
             </section>
         </div>
     </div>

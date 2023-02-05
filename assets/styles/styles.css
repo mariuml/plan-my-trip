@@ -49,9 +49,12 @@ aside {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.8);
 }
 
-/* Search heading */
-#form-heading,
-h2 {
+#search-form {
+  margin-bottom: 30px;
+}
+
+/* Search headings */
+.search-section-headings {
   font-weight: 500px;
   font-family: cursive;
   color: white;
