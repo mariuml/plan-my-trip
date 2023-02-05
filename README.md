@@ -2,20 +2,26 @@
 
 ## Description
 
-An app that allows you to enter a city, then find local attractions and the local weather conditions in the area searched.
+A travel app that allows users to find attractions in the city that they are travelling to. Six attractions are currently available. The app also provides the forecast for the next five days in that city.
 
 ## Usage
 
 ### How-to
 
->>***Add in step-by-step***
+1. Type in the name of a city
+2. Select one category that you want to view on the map
+3. Click search
+
+. . . . . . . . . . .
+
+*To view a previous search result, click one of the buttons in the search history.*
 
 ### Visuals
 ![Placeholder for app image or gif](./assets/media/)
 
 ## Deployment
 
-If you would like to see the finished website please click on the link below
+Click [here]() to use **Plan My Trip**!
 
 ## Credits
 
@@ -32,8 +38,16 @@ If you would like to see the finished website please click on the link below
 - [Moment](https://momentjs.com/docs/)
 
 ### Images
-- Favicon by [Freepik on FlatIcon](https://www.flaticon.com/free-icons/tour)
+- Favicon from [Freepik on FlatIcon](https://www.flaticon.com/free-icons/tour)
+- Background by [Annie Spratt]()
 
 ## Licence
 
 Please refer to the LICENSE in the repo.
+
+## Feature Development
+
+- Allow search for multiple categories
+- Make changing/adding/removing categories more dynamic
+- Extend category section with additional categories and subcategories
+- Add calendar to allow search at specific times of the year
