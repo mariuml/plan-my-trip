@@ -28,18 +28,25 @@
     <div class="container-fluid" style="max-width: 1400px">
         <div class="row container-border">
             <aside class="col-lg-3 pb-3">
-                <h2 id="form-heading" class="mt-1 h3 form-label">
-                    Search for a City:
-                </h2>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="form-heading">
+                    <h2><strong>Search for a City</strong>
+                    </h2>
+                </div>
+
                 <form id="search-form" class="form">
                     <div class="form-inline form-group">
                         <div class="input-group">
-                            <input class="form-input weather-search" type="text" id="search-input" placeholder="City Name"
-                                aria-labelledby="form-heading" aria-controls="today forecast" />
-                            <!-- DROPDOWN -->
+                            <input class="form-input weather-search" type="text" id="search-input"
+                                placeholder="City Name" aria-labelledby="form-heading" aria-controls="today forecast" />
+                            <!-- Dropdown for the categories -->
                             <div class="dropdown">
-                                <button id="dropdown-button" class="btn btn-secondary dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Select an attraction category
                                 </button>
                                 <div class="dropdown-menu" id="categories-menu"></div>
@@ -53,14 +60,19 @@
                 </form>
             </aside>
 
-             <!-- Map display -->
-             <div id="map" class="col-8 col-md-8 col-lg-12 "></div>
-             
-                <!-- 5 day forcecast cards -->
-                <h2>5-day Forecast:</h2>
+            <!-- Map display -->
+           
+                <div id="map" class="col-8 col-md-8 col-lg-10 "></div>
+        
 
             <section id="forecast" class="row mt-3 hide" role="region" aria-live="polite">
+               
+                <!-- 5 day forcast cards -->
+                <div>
+                    <h2>5-Day Forecast</h2>
+                </div>
                 <!-- Cards: Day 1-->
+
                 <div class="card mb-3 day-forecast" id="day1" style="max-width: 18rem">
                     <div class="card-header" id="day1-date"> Day 1</div>
                     <!-- <div class="card-body">
@@ -117,23 +129,31 @@
 
                 </div>
 
-                </section>
-               
-   
-            </div>
+            </section>
+
+
         </div>
     </div>
-
-    </div>
-    </div>
     </div>
 
+    </div>
+    </div>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
     <!-- Footer Start -->
     <footer>
-
+        <br>
+        <br>
+        <br>
+        <p class="footer">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </footer>
     <!-- Footer End -->
 
