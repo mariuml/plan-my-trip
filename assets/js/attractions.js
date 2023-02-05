@@ -12,21 +12,21 @@ var categoriesArray = [
 
 // Default category
 var category = 'cultural';
+// Placeholder of dropdown button
+const dropDownButton = $("#dropdown-button");
 
 // Add categories array to drop-down
 for (var i = 0; i < categoriesArray.length; i++) {
-  var dropdownButton = $('<button class="dropdown-item" type="button">').text(
-    categoriesArray[i]
-  );
-  $("#categories-menu").append(dropdownButton);
+  var dropdownItem = $('<a class="dropdown-item" href="#">').text(categoriesArray[i].toUpperCase());
+  $("#categories-menu").append(dropdownItem);
 }
 
 // Add a click event to save the value of the dropdown selection
-
-$(".dropdown-item").on("click", function (event) {
+$(".dropdown-item").on("click", function () {
   // Setting global category variable as user selection
-  category = event.target.innerHTML;
-  console.log(category);
+  category = $(this).text().toLowerCase();
+  // Setting to change dropdown button placeholder with user selected category.
+  dropDownButton.text(`Selected category: ${$(this).text()}`);
 });
 
 // / Open Weather API
@@ -68,7 +68,7 @@ $("#search-button").on("click", function (event) {
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
-
+    console.log(category)
     // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
@@ -96,7 +96,7 @@ $("#search-button").on("click", function (event) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== ''){
+        if (tripResponse.features[i].properties.name !== ''){
         // Sends pin locations to GoogleMap API
         var object = { lat: 0, lng: 0 };
         object.lat = lat;
