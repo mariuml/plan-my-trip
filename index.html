@@ -22,17 +22,17 @@
     <!-- <header class="container-fluid text-center p-2 weather-header">
         <h1>Plan My Trip</h1>
     </header> -->
-    <div class="title"><strong>Plan My Trip</strong></div>
+    <header class="title"><strong>Plan My Trip</strong></header>
 
     <!-- City search-->
     <div class="container-fluid" style="max-width: 1400px">
-        <div class="row container-border">
-            <aside class="col-lg-3 pb-3">
+        <div id="map-search-row" class="row container-border">
+            <aside class="col-lg-4 col-md-4 pb-3">
+                <!-- <br>
                 <br>
                 <br>
                 <br>
-                <br>
-                <br>
+                <br> -->
                 <div id="form-heading">
                     <h2><strong>Search for a City</strong>
                     </h2>
@@ -61,99 +61,61 @@
             </aside>
 
             <!-- Map display -->
-           
-                <div id="map" class="col-8 col-md-8 col-lg-10 "></div>
-        
+            <div id="map" class="col-lg-8 col-md-8"></div>
+        </div>
 
-            <section id="forecast" class="row mt-3 hide" role="region" aria-live="polite">
-               
-                <!-- 5 day forcast cards -->
+        <!-- 5 day forecast -->
+        <div class="row container-border">
+            <section id="forecast" class="col-12 mt-3 hide" role="region" aria-live="polite">
+
+                <!-- Forecast header -->
                 <div>
-                    <h2>5-Day Forecast</h2>
-                </div>
-                <!-- Cards: Day 1-->
-
-                <div class="card mb-3 day-forecast" id="day1" style="max-width: 18rem">
-                    <div class="card-header" id="day1-date"> Day 1</div>
-                    <!-- <div class="card-body">
-                            <img class="weather-image" />
-                            <p id="day-one-temp"></p>
-                            <p id="day-one-wind"></p>
-                            <p id="day-one-humidity"></p>
-                        </div> -->
+                    <h2 id="header-forecast">5-Day Forecast</h2>
                 </div>
 
-                <!-- Cards: Day 2-->
-                <div class="card mb-3 day-forecast" id="day2" style="max-width: 18rem">
-                    <div class="card-header" id="day2-date"> Day 2</div>
-                    <!-- <div class="card-body">
-                            <img class="weather-image" />
-                            <p id="day-two-temp"></p>
-                            <p id="day-two-wind"></p>
-                            <p id="day-two-humidity"></p>
-                        </div> -->
+                <!-- Forecast cards -->
+                <div id="forecast-card-row" class="row justify-content-between">
+                    <!-- Cards: Day 1-->
+                    <div class="card mb-3 day-forecast" id="day1" style="max-width: 18rem">
+                        <div class="card-header" id="day1-date"> Day 1</div>
+                    </div>
+
+                    <!-- Cards: Day 2-->
+                    <div class="card mb-3 day-forecast" id="day2" style="max-width: 18rem">
+                        <div class="card-header" id="day2-date"> Day 2</div>
+                    </div>
+
+                    <!-- Cards: Day 3-->
+                    <div class="card mb-3 day-forecast" id="day3" style="max-width: 18rem">
+                        <div class="card-header" id="day3-date"> Day 3</div>
+                    </div>
+
+                    <!-- Cards: Day 4-->
+                    <div class="card mb-3 day-forecast" id="day4" style="max-width: 18rem">
+                        <div class="card-header" id="day4-date"> Day 4</div>
+                    </div>
+
+                    <!-- Cards: Day 5-->
+                    <div class="card mb-3 day-forecast" id="day5" style="max-width: 18rem">
+                        <div class="card-header" id="day5-date"> Day 5</div>
+                    </div>
                 </div>
-
-                <!-- Cards: Day 3-->
-                <div class="card mb-3 day-forecast" id="day3" style="max-width: 18rem">
-                    <div class="card-header" id="day3-date"> Day 3</div>
-                    <!-- <div class="card-body">
-                            <img class="weather-image" />
-                            <p id="day-three-temp"></p>
-                            <p id="day-three-wind"></p>
-                            <p id="day-three-humidity"></p>
-                        </div> -->
-                </div>
-
-                <!-- Cards: Day 4-->
-
-                <div class="card mb-3 day-forecast" id="day4" style="max-width: 18rem">
-                    <div class="card-header" id="day4-date"> Day 4</div>
-                    <!-- <div class="card-body">
-                            <img class="weather-image" />
-                            <p id="day-four-temp"></p>
-                            <p id="day-four-wind"></p>
-                            <p id="day-four-humidity"></p>
-                        </div> -->
-                </div>
-
-                <!-- Cards: Day 5-->
-                <div class="card mb-3 day-forecast" id="day5" style="max-width: 18rem">
-                    <div class="card-header" id="day5-date"> Day 5</div>
-                    <!-- <div class="card-body">
-                            <img class="weather-image" />
-                            <p id="day-five-temp"></p>
-                            <p id="day-five-wind"></p>
-                            <p id="day-five-humidity"></p>
-                        </div> -->
-
-                </div>
-
             </section>
-
-
         </div>
     </div>
     </div>
-
     </div>
     </div>
     </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
+    <!-- Add some spacing on page -->
+    <br>
+    <br>
+    <br>
 
     <!-- Footer Start -->
     <footer>
-        <br>
-        <br>
-        <br>
-        <p class="footer">Copyright (c) 2023 
+        <p class="footer">Copyright (c) 2023
 
             Permission is hereby granted, free of charge, to any person obtaining a copy
             of this software and associated documentation files (the "Software"), to deal
@@ -161,10 +123,10 @@
             to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
             copies of the Software, and to permit persons to whom the Software is
             furnished to do so, subject to the following conditions:
-            
+
             The above copyright notice and this permission notice shall be included in all
             copies or substantial portions of the Software.
-            
+
             THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
             IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
             FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -172,7 +134,7 @@
             LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
             OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
             SOFTWARE.</p>
-    
+
     </footer>
     <!-- Footer End -->
 
