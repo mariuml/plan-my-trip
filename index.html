@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+        </style>
     <!-- Page Title -->
     <title>Plan My Trip</title>
     <link rel="icon" type="image/x-icon" href="./assets/media/images/destination-favicon.png">
@@ -18,11 +21,11 @@
 
 <body>
 
-    <!-- Heading at the top of the page -->
-    <!-- <header class="container-fluid text-center p-2 weather-header">
-        <h1>Plan My Trip</h1>
-    </header> -->
-    <header class="title"><strong>Plan My Trip</strong></header>
+    <!-- Navbar styling -->
+    <div id="nav-bar">
+       <header id="title">    
+        <img src="./assets/media/images/travel-header-icon.png" id="header-image"> 
+         Plan My Trip</header></div>
 
     <!-- City search-->
     <div class="container-fluid" style="max-width: 1400px">
@@ -39,9 +42,11 @@
                 <form id="search-form" class="form">
                     <div class="form-inline form-group">
                         <div class="input-group">
+
+                            <div id="search-box-outline">
                             <input class="form-input weather-search" type="text" id="search-input"
                                 placeholder="City Name" aria-labelledby="form-heading" aria-controls="today forecast" />
-
+                            </div>
                             <!-- Dropdown for the categories -->
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
