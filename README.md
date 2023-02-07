@@ -1,10 +1,10 @@
-# ![Travel Icon](./assets/media/images/destination-favicon.png) Plan My Trip
+# ![around the world travel icon](./assets/media/images/destination-favicon.png) Plan My Trip
 
 ## Description
 
 For the first project of the Front End Web Development Bootcamp [we](#team) were challenged to solve a real world problem. We decided on a travel app that would help make travel planning easier. Plan My Trip makes it easy for users to search for attractions in their chosen destination city using a readily available list. The app provides a forecast for the next 5 days so that users can plan according to the weather. It also remembers the last few searches so need to keep the browser open or open multiple tabs.
 
-Click [here]() to use **Plan My Trip**!
+Click [here](https://mariuml.github.io/plan-my-trip/) to use **Plan My Trip**!
 
 ## Usage
 
@@ -40,8 +40,7 @@ _To view a previous search result, click one of the buttons in the **Search Hist
 
 ### Images
 
-- Favicon from [Freepik on FlatIcon](https://www.flaticon.com/free-icons/tour)
-- Background by [Annie Spratt]()
+- Logo from [FlatIcon](https://www.flaticon.com/free-icon/travel_5219574)
 
 ## Licence
 
@@ -53,4 +52,5 @@ Please refer to the LICENSE in the repo.
 - Make changing/adding/removing categories more dynamic
 - Extend category section with additional categories and subcategories
 - Add calendar to allow search at specific times of the year
-- Feedback form
+- User feedback form
+- Dynamic map pins
