@@ -214,6 +214,12 @@ $("#search-button").on("click", function (event) {
   categoryHistory.push(category);
   localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
 
+  // Immediately update search history
+  // Clear
+  $("#history").empty();
+  // Re-populate
+  showSearch();
+
   // Create URL
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -365,8 +371,8 @@ $("#search-button").on("click", function (event) {
 });
 
 // Search from history buttons
-$("#history").on('click', "button.history-buttons", function() {
+$("#history").on("click", "button.history-buttons", function () {
   city = $(this).attr("data-city");
   category = $(this).attr("data-category").toLowerCase();
-  searchCity(city)
-})
+  searchCity(city);
+});
