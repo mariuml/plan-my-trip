@@ -24,7 +24,7 @@ function showSearch() {
           cityHistory[i]
         } data-category=${categoryHistory[i]}>${
           cityHistory[i]
-        } - ${categoryHistory[i].charAt(0).toUpperCase()}</button>`
+        } - ${categoryHistory[i].charAt(0).toUpperCase() + categoryHistory[i].slice(1)}</button>`
       );
     }
   }
@@ -36,10 +36,8 @@ var category = "cultural";
 
 // Add categories array to drop-down
 for (var i = 0; i < categoriesArray.length; i++) {
-  var dropdownButton = $('<button class="dropdown-item" type="button">').text(
-    categoriesArray[i]
-  );
-  $("#categories-menu").append(dropdownButton);
+  var dropdownItem = $('<a class="dropdown-item" href="#">').text(categoriesArray[i].toUpperCase());
+  $("#categories-menu").append(dropdownItem);
 }
 
 // Add a click event to save the value of the dropdown selection
@@ -76,7 +74,7 @@ function searchCity(city) {
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
-
+    console.log(category)
     // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
