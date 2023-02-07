@@ -89,6 +89,10 @@ aside {
   padding-bottom: 200px;
 }
 
+.card-body {
+  padding-top: 5px;
+}
+
 /* Page header */
 .title {
   text-align: center;
