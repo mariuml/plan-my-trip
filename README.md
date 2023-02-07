@@ -1,4 +1,4 @@
-# ![around the world travel icon](./assets/media/images/destination-favicon.png) Plan My Trip
+# <img src="https://cdn-icons-png.flaticon.com/512/5219/5219574.png" width="35" height="35"> Plan My Trip
 
 ## Description
 
