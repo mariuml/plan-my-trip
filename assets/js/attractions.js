@@ -10,21 +10,29 @@ var categoriesArray = [
   "foods",
 ];
 
-var cities = JSON.parse(localStorage.getItem('cities')) || []
+// Arrays for city and category history
+var cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || [];
+var categoryHistory = JSON.parse(localStorage.getItem("categoryHistory")) || [];
 
-// function to show previous searches
+// function to show 5 previous searches
 function showSearch() {
-  $('#history-buttons').append('london')
-  for (let i = 0; i < cities.length; i++) {
-    $('#history-buttons').append(`<button onclick = "() => {
-      console.log()">${cities[i]}</button>`)
-
+  var lastItem = cityHistory.length - 1;
+  for (let i = lastItem; i >= lastItem - 5; i--) {
+    if (cityHistory[i] != null) {
+      $("#history").append(
+      `<button class="history-buttons" data-city=${cityHistory[i]} data-category=${categoryHistory[i]}>${cityHistory[i]} - ${categoryHistory[i]}</button>`
+    );}
   }
+  // $("#history-buttons").append("london");
+  // for (let i = 0; i < cities.length; i++) {
+  //   $("#history").append(`<button onclick = "() => {
+  //     console.log()">${cityHistory[i]} - ${categoryHistory[i]}</button>`);
+  // }
 }
-showSearch()
+showSearch();
 
 // Default category
-var category = 'cultural';
+var category = "cultural";
 
 // Add categories array to drop-down
 for (var i = 0; i < categoriesArray.length; i++) {
@@ -35,16 +43,17 @@ for (var i = 0; i < categoriesArray.length; i++) {
 }
 
 // Add a click event to save the value of the dropdown selection
-
 $(".dropdown-item").on("click", function (event) {
   // Setting global category variable as user selection
   category = event.target.innerHTML;
-  console.log(category);
+
+  // Add category to categoryHistory array
+  categoryHistory.push(category);
+  localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
 });
 
 // / Open Weather API
 // Get weather info and longitude and latitude of city
-
 function searchCity(city) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -56,9 +65,8 @@ function searchCity(city) {
   $.ajax({
     url: queryURL,
     method: "GET",
-    async: false
+    async: false,
   }).then(function (weatherResponse) {
-
     // Get coordinates for openTrip
     var cityLon = weatherResponse.coord.lon;
     var cityLat = weatherResponse.coord.lat;
@@ -93,14 +101,15 @@ function searchCity(city) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
-
-
       // Get coordinates from results
       for (var i = 0; i < tripResponse.features.length; i++) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== '') {
+        if (
+          tripResponse.features[i].properties.name !== "" ||
+          tripResponse.features[i].properties.wikidata !== ""
+        ) {
           // Sends pin locations to GoogleMap API
           var object = { lat: 0, lng: 0 };
           object.lat = lat;
@@ -112,8 +121,8 @@ function searchCity(city) {
 
           // Sends WikiData to the map.
           wikiData.push(tripResponse.features[i].properties.wikidata);
-        };
-      };
+        }
+      }
       initMap();
       $("#search-input").val("");
     });
@@ -180,7 +189,9 @@ function searchCity(city) {
         );
 
         // // Info for the card header div
-        var forecastDay = $(`#day${day}-date`).text(`Day ${day} - ${forecastDateConv}`)
+        var forecastDay = $(`#day${day}-date`).text(
+          `Day ${day} - ${forecastDateConv}`
+        );
 
         // var forecastDay = $(
         //   `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
@@ -193,7 +204,7 @@ function searchCity(city) {
         day += 1;
       }
     });
-  })
+  });
 }
 
 // Build weather query
@@ -202,10 +213,9 @@ $("#search-button").on("click", function (event) {
   // Grab city name from search
   var city = $("#search-input").val();
 
-  cities.push(city)
-  localStorage.setItem('cities', JSON.stringify(cities))
-  // Check city
-  // console.log(city);
+  // Add city to cityHistory array
+  cityHistory.push(city);
+  localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
 
   // Create URL
   var queryURL =
@@ -218,9 +228,8 @@ $("#search-button").on("click", function (event) {
   $.ajax({
     url: queryURL,
     method: "GET",
-    async: false
+    async: false,
   }).then(function (weatherResponse) {
-
     // Get coordinates for openTrip
     var cityLon = weatherResponse.coord.lon;
     var cityLat = weatherResponse.coord.lat;
@@ -230,7 +239,7 @@ $("#search-button").on("click", function (event) {
 
     // Build open trip query
     // Min and max coordinates to plug into open trip
-    var coordMargin = 0.0055
+    var coordMargin = 0.0055;
     var longitudeMin = cityLon - coordMargin;
     var latitudeMin = cityLat - coordMargin;
     var longitudeMax = cityLon + coordMargin;
@@ -256,14 +265,15 @@ $("#search-button").on("click", function (event) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
-
-
       // Get coordinates from results
       for (var i = 0; i < tripResponse.features.length; i++) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name !== '' || tripResponse.features[i].properties.wikidata !== '') {
+        if (
+          tripResponse.features[i].properties.name !== "" ||
+          tripResponse.features[i].properties.wikidata !== ""
+        ) {
           // Sends pin locations to GoogleMap API
           var object = { lat: 0, lng: 0 };
           object.lat = lat;
@@ -275,8 +285,8 @@ $("#search-button").on("click", function (event) {
 
           // Sends WikiData to the map.
           wikiData.push(tripResponse.features[i].properties.wikidata);
-        };
-      };
+        }
+      }
       initMap();
       $("#search-input").val("");
     });
@@ -343,11 +353,9 @@ $("#search-button").on("click", function (event) {
         );
 
         // // Info for the card header div
-        var forecastDay = $(`#day${day}-date`).text(`Day ${day} - ${forecastDateConv}`)
-
-        // var forecastDay = $(
-        //   `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
-        // );
+        var forecastDay = $(`#day${day}-date`).text(
+          `Day ${day} - ${forecastDateConv}`
+        );
 
         // Clear
         $("#day" + day + " :nth-child(2)").remove();
@@ -358,3 +366,4 @@ $("#search-button").on("click", function (event) {
     });
   });
 });
+
