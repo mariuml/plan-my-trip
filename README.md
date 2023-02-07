@@ -4,6 +4,8 @@
 
 A travel app that allows users to find attractions in the city that they are travelling to. Six attractions are currently available. The app also provides the forecast for the next five days in that city.
 
+Click [here]() to use **Plan My Trip**!
+
 ## Usage
 
 ### How-to
@@ -18,10 +20,6 @@ A travel app that allows users to find attractions in the city that they are tra
 
 ### Visuals
 ![Placeholder for app image or gif](./assets/media/)
-
-## Deployment
-
-Click [here]() to use **Plan My Trip**!
 
 ## Credits
 
