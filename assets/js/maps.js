@@ -8,44 +8,12 @@ const sendCoords = (lat, lon) => {
 
 const center = { lat: 51.509865, lng: -0.118092 };
 
-// // User Location 
-// const userLoc = [];
-
-// userLocation();
-
-// // Function to get current user location.
-// function userLocation() {
-// const options = {
-//   enableHighAccuracy: true,
-//   timeout: 5000,
-//   maximumAge: 0,
-// };
-
-// // if it succeed it will push user lat and long to userLoc variable and zoom to 11 then refresh a map.
-// function success(pos) {
-//   const crd = pos.coords;
-//   center.lat = crd.latitude;
-//   center.lng = crd.longitude;
-//   zoom = 13;
-//   initMap();
-// };
-// function error(err) {
-//   console.warn(`ERROR(${err.code}): ${err.message}`);
-// };
-// navigator.geolocation.getCurrentPosition(success, error, options);
-// };
-
-
-
   // Array of pin locations
   const pinLocations = [];
 
   // Received titles from Trip advisors API.
   let titles = [];
-
-  // Received wiki data code.
-  let wikiData = [];
-  let wikiLink = ''
+  let searchCityVal = "";
 function initMap() {
 
   // Centers map on a location
@@ -55,18 +23,13 @@ function initMap() {
   });
   // Loop throw pins
   for (let i = 0; i < pinLocations.length; i++) {
-    let wikiLink = '';
-    if (wikiData[i] !== undefined) {
-      wikiLink = '<a href="https://www.wikidata.org/wiki/'+ wikiData[i] +'" target="_blank">Click here for description!</a>'
-    } else {
-      wikiLink = "<p>It doesn't have wikidata. We need to write something here! :D</p>"
-    }
+    const searchWord = titles[i].split(' ').map(word => word.trim());
+    searchWord.push(searchCityVal)
     // Pin description
     const contentString =
       '<div id="mapContent">' +
       '<h1 id="mapHeading">'+ titles[i] +'</h1>' +
-      '<div id="mapBodyContent">' +
-      wikiLink +
+      '<div id="mapBodyContent"><a target="_blank" href="https://www.google.com/search?q='+ searchWord.join("+") +'">For more information click here!</a>' +
       "</div>" +
       "</div>";
     // Pin infoWindow content
@@ -90,5 +53,4 @@ function initMap() {
   };
   // Empty pins array for next call.
   titles = [];
-  wikiData = [];
 };

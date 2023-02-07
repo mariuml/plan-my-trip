@@ -42,8 +42,11 @@ for (var i = 0; i < categoriesArray.length; i++) {
 
 // Add a click event to save the value of the dropdown selection
 $(".dropdown-item").on("click", function (event) {
+  event.preventDefault();
   // Setting global category variable as user selection
-  category = event.target.innerHTML;
+  category = event.target.innerHTML.toLowerCase();
+  $("#dropdownMenu2").text(`Selected category: ${$(this).text()}`)
+
 });
 
 // / Open Weather API
@@ -100,10 +103,7 @@ function searchCity(city) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (
-          tripResponse.features[i].properties.name !== "" ||
-          tripResponse.features[i].properties.wikidata !== ""
-        ) {
+        if (tripResponse.features[i].properties.name != '') {
           // Sends pin locations to GoogleMap API
           var object = { lat: 0, lng: 0 };
           object.lat = lat;
@@ -112,9 +112,6 @@ function searchCity(city) {
 
           // Sends titles to the map.
           titles.push(tripResponse.features[i].properties.name);
-
-          // Sends WikiData to the map.
-          wikiData.push(tripResponse.features[i].properties.wikidata);
         }
       }
       initMap();
@@ -203,7 +200,7 @@ $("#search-button").on("click", function (event) {
   event.preventDefault();
   // Grab city name from search
   var city = $("#search-input").val();
-
+  searchCityVal = city;
   // Add city to cityHistory array
   cityHistory.push(city);
   localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
@@ -271,10 +268,7 @@ $("#search-button").on("click", function (event) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (
-          tripResponse.features[i].properties.name !== "" ||
-          tripResponse.features[i].properties.wikidata !== ""
-        ) {
+        if (tripResponse.features[i].properties.name != '') {
           // Sends pin locations to GoogleMap API
           var object = { lat: 0, lng: 0 };
           object.lat = lat;
@@ -284,8 +278,6 @@ $("#search-button").on("click", function (event) {
           // Sends titles to the map.
           titles.push(tripResponse.features[i].properties.name);
 
-          // Sends WikiData to the map.
-          wikiData.push(tripResponse.features[i].properties.wikidata);
         }
       }
       initMap();
