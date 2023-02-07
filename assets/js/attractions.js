@@ -363,3 +363,10 @@ $("#search-button").on("click", function (event) {
     });
   });
 });
+
+// Search from history buttons
+$("#history").on('click', "button.history-buttons", function() {
+  city = $(this).attr("data-city");
+  category = $(this).attr("data-category").toLowerCase();
+  searchCity(city)
+})
