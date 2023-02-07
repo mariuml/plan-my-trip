@@ -42,9 +42,10 @@ aside {
 }
 
 .dropdown-item {
-  width: 200px;
+  width: 100%;
   background-color: white;
   padding: 0.75rem;
+  margin-bottom: 3px;
   border-radius: 0.25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.8);
 }
@@ -61,6 +62,12 @@ aside {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   width: 100%;
+}
+
+/* Search history buttons */
+.history-buttons {
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 /* Map styling */

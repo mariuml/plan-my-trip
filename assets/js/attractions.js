@@ -20,7 +20,7 @@ function showSearch() {
   for (let i = lastItem; i > lastItem - 5; i--) {
     if (cityHistory[i] != null) {
       $("#history").append(
-        `<button class="history-buttons" data-city=${
+        `<button class="history-buttons btn btn-secondary" data-city=${
           cityHistory[i]
         } data-category=${categoryHistory[i]}>${
           cityHistory[i]
