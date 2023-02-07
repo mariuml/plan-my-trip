@@ -24,7 +24,7 @@ function showSearch() {
           cityHistory[i]
         } data-category=${categoryHistory[i]}>${
           cityHistory[i]
-        } - ${categoryHistory[i].charAt(0).toUpperCase()}</button>`
+        } - ${categoryHistory[i].charAt(0).toUpperCase() + categoryHistory[i].slice(1)}</button>`
       );
     }
   }
