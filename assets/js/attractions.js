@@ -17,17 +17,17 @@ var categoryHistory = JSON.parse(localStorage.getItem("categoryHistory")) || [];
 // function to show 5 previous searches
 function showSearch() {
   var lastItem = cityHistory.length - 1;
-  for (let i = lastItem; i >= lastItem - 5; i--) {
+  for (let i = lastItem; i > lastItem - 5; i--) {
     if (cityHistory[i] != null) {
       $("#history").append(
-      `<button class="history-buttons" data-city=${cityHistory[i]} data-category=${categoryHistory[i]}>${cityHistory[i]} - ${categoryHistory[i]}</button>`
-    );}
+        `<button class="history-buttons" data-city=${
+          cityHistory[i]
+        } data-category=${categoryHistory[i]}>${
+          cityHistory[i]
+        } - ${categoryHistory[i].charAt(0).toUpperCase()}</button>`
+      );
+    }
   }
-  // $("#history-buttons").append("london");
-  // for (let i = 0; i < cities.length; i++) {
-  //   $("#history").append(`<button onclick = "() => {
-  //     console.log()">${cityHistory[i]} - ${categoryHistory[i]}</button>`);
-  // }
 }
 showSearch();
 
@@ -46,10 +46,6 @@ for (var i = 0; i < categoriesArray.length; i++) {
 $(".dropdown-item").on("click", function (event) {
   // Setting global category variable as user selection
   category = event.target.innerHTML;
-
-  // Add category to categoryHistory array
-  categoryHistory.push(category);
-  localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
 });
 
 // / Open Weather API
@@ -127,6 +123,7 @@ function searchCity(city) {
       $("#search-input").val("");
     });
 
+    // Build forecast query
     // Create URL
     var queryURLForecast =
       "https://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -136,7 +133,7 @@ function searchCity(city) {
       "&appid=" +
       openWeatherAPIKey;
 
-    //   API query for forecasted weather
+    // API query for forecasted weather
     $.ajax({
       url: queryURLForecast,
       method: "GET",
@@ -193,11 +190,7 @@ function searchCity(city) {
           `Day ${day} - ${forecastDateConv}`
         );
 
-        // var forecastDay = $(
-        //   `<div class="card-header" id="day${day}-date" >Day ${day}</div>`
-        // );
-
-        // Clear
+        // Clear previous search
         $("#day" + day + " :nth-child(2)").remove();
         // $("#day" + day).empty();
         $("#day" + day).append(forecastDay, forecastBlock);
@@ -216,6 +209,10 @@ $("#search-button").on("click", function (event) {
   // Add city to cityHistory array
   cityHistory.push(city);
   localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
+
+  // Add category to categoryHistory array
+  categoryHistory.push(category);
+  localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
 
   // Create URL
   var queryURL =
@@ -366,4 +363,3 @@ $("#search-button").on("click", function (event) {
     });
   });
 });
-
