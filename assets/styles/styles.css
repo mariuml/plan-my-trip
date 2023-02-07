@@ -165,3 +165,8 @@ footer {
   border: 2px solid var(--theme-color-3);
   border-radius: 10px;
 }
+
+#footer-icon {
+  height: 25px;
+  width: 25px;
+}
