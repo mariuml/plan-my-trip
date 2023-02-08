@@ -20,7 +20,7 @@ _To view a previous search result, click one of the buttons in the **Search Hist
 
 ### Demo
 
-![Placeholder for app image or gif](./assets/media/)
+![Application Demo](./assets/media/videos/demo.gif)
 
 ## Credits
 
@@ -50,6 +50,8 @@ Please refer to the LICENSE in the repo.
 
 - Allow search for multiple categories
 - Make changing/adding/removing categories more dynamic
-- Extend category section with additional categories and subcategories
+- Extend category section with additional categories and subcategories\
+- Allow users to specify a search radius
+- Include option to limit number of results
 - Add calendar to allow search at specific times of the year
 - User feedback form
