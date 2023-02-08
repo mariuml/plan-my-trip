@@ -39,7 +39,7 @@ function addMarker() {
     searchWord = titles[i].replace(/ /g, "+");
 
     const marker = L.marker(pinLocations[i]).bindPopup(
-      '<h2 style="text-align: center; color: black; font-weight: bold">' +
+      '<h2 class="pin-heading">' +
         titles[i] +
         "</h2>" +
         '<a target="_blank" href="https://www.google.com/search?q=' +

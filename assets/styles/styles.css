@@ -101,8 +101,11 @@ aside {
 }
 
 /* Map pins */
-#mapHeading {
+.pin-heading {
   font-size: 20px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
 }
 
 /* Card styling */
