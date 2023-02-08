@@ -181,6 +181,11 @@ footer {
   padding: 3px 6px;
 }
 
+#footer-button:hover {
+  background-color: var(--theme-color-4);
+  border-color: var(--theme-color-4);
+}
+
 #footer-icon {
   height: 25px;
   width: 25px;
