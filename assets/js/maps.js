@@ -34,7 +34,7 @@ removeMarker()
   for (var i = 0; i < pinLocations.length; i++) {
     let searchWord = [];
     
-      searchWord = titles[i].replace(/ /g, '+');
+    searchWord = titles[i].replace(/ /g, '+');
 
 
     const marker = L.marker(pinLocations[i]).bindPopup(
