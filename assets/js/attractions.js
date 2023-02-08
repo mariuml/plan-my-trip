@@ -1,15 +1,3 @@
-// Categories logic
-
-// GLOBAL VARIABLES
-var categoriesArray = [
-  "historic",
-  "cultural",
-  "natural",
-  "religion",
-  "banks",
-  "foods",
-];
-
 // Arrays for city and category history
 var cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || [];
 var categoryHistory = JSON.parse(localStorage.getItem("categoryHistory")) || [];
@@ -31,6 +19,16 @@ function showSearch() {
   }
 }
 showSearch();
+
+// Categories for dropdown menu
+var categoriesArray = [
+  "historic",
+  "cultural",
+  "natural",
+  "religion",
+  "banks",
+  "foods",
+];
 
 // Default category
 var category = "cultural";
@@ -107,7 +105,7 @@ function searchCity(city) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
 
-        if (tripResponse.features[i].properties.name != '') {
+        if (tripResponse.features[i].properties.name != "") {
           // Sends pin locations to GoogleMap API
           var pinCoords = [lat, lon];
           pinLocations.push(pinCoords);
@@ -197,14 +195,14 @@ function searchCity(city) {
   });
 }
 
-
-// Sea
+// Search button click event
 $("#search-button").on("click", function (event) {
   event.preventDefault();
+  // Grab city name from search
   var city = $("#search-input").val();
   searchCity(city);
 
-  // Grab city name from search
+  // Assign to variable for maps.js
   searchCityVal = city;
 
   // Add city to cityHistory array
@@ -214,12 +212,12 @@ $("#search-button").on("click", function (event) {
   // Add category to categoryHistory array
   categoryHistory.push(category);
   localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
-    // Clear
-    $("#history").empty();
+
+  // Populate history immediately
+  // Clear
+  $("#history").empty();
   showSearch();
 });
-
-
 
 // Search from history buttons
 $("#history").on("click", "button.history-buttons", function () {

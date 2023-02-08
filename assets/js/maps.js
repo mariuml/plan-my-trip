@@ -37,9 +37,6 @@ function addMarker() {
     let searchWord = [];
 
     searchWord = titles[i].replace(/ /g, "+");
-    
-    searchWord = titles[i].replace(/ /g, '+');
-
 
     const marker = L.marker(pinLocations[i]).bindPopup(
       '<h2 class="pin-heading">' +
@@ -56,6 +53,7 @@ function addMarker() {
   }
 }
 
+// Function to remove pins from map
 function removeMarker() {
   for (var i = 0; i < arrayObj.length; i++) {
     map.removeLayer(arrayObj[i]);
