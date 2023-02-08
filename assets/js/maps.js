@@ -9,7 +9,7 @@ const sendCoords = (lat, lon) => {
 let center = [51.509865, -0.118092];
 
 // Array of pin locations
-const pinLocations = [];
+let pinLocations = [];
 
 // Received titles from Trip advisors API.
 let titles = [];
@@ -22,9 +22,12 @@ L.tileLayer('https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=KW
 
 let searchCityVal = "";
 
+
+
+const arrayObj = [];
 // function to add Markers to the map
 function addMarker() {
-  console.log(pinLocations)
+removeMarker()
   // Centers map by the user inputed location
   map.flyTo(center, zoom)
   // Loop throw pin locations and makes markers.
@@ -32,17 +35,24 @@ function addMarker() {
     let searchWord = [];
     
       searchWord = titles[i].replace(/ /g, '+');
-    console.log(searchWord)
 
 
-    new L.marker(pinLocations[i]).bindPopup(
+    const marker = L.marker(pinLocations[i]).bindPopup(
     
     '<h2 style="text-align: center; color: black; font-weight: bold">' +
     titles[i] +
     "</h2>" +
     '<a target="_blank" href="https://www.google.com/search?q=' +
     searchWord + '+' + searchCityVal +
-    '">For more information click here!</a>').addTo(map);
+    '">For more information click here!</a>');
+    arrayObj.push(marker);
+    map.addLayer(marker);
+  }
 
+};
+
+function removeMarker() {
+  for (var i = 0; i < arrayObj.length; i++) {
+    map.removeLayer(arrayObj[i])
   }
 }

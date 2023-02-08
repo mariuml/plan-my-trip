@@ -98,10 +98,13 @@ function searchCity(city) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
+
       // Get coordinates from results
       for (var i = 0; i < tripResponse.features.length; i++) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
+
+   
 
         if (tripResponse.features[i].properties.name != '') {
           // Sends pin locations to GoogleMap API
@@ -261,7 +264,11 @@ $("#search-button").on("click", function (event) {
       url: openTripAPIURL,
       method: "GET",
     }).then(function (tripResponse) {
+      
       // Get coordinates from results
+      pinLocations = [];
+      titles = [];
+
       for (var i = 0; i < tripResponse.features.length; i++) {
         var lon = tripResponse.features[i].geometry.coordinates[0];
         var lat = tripResponse.features[i].geometry.coordinates[1];
