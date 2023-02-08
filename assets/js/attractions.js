@@ -105,16 +105,14 @@ function searchCity(city) {
 
         if (tripResponse.features[i].properties.name != '') {
           // Sends pin locations to GoogleMap API
-          var object = { lat: 0, lng: 0 };
-          object.lat = lat;
-          object.lng = lon;
-          pinLocations.push(object);
+          var pinCoords = [lat, lon];
+          pinLocations.push(pinCoords);
 
           // Sends titles to the map.
           titles.push(tripResponse.features[i].properties.name);
         }
       }
-      initMap();
+      addMarker();
       $("#search-input").val("");
     });
 
@@ -270,20 +268,20 @@ $("#search-button").on("click", function (event) {
 
         if (tripResponse.features[i].properties.name != '') {
           // Sends pin locations to GoogleMap API
-          var object = { lat: 0, lng: 0 };
-          object.lat = lat;
-          object.lng = lon;
-          pinLocations.push(object);
+          var pinCoords = [lat, lon];
+          pinLocations.push(pinCoords);
 
           // Sends titles to the map.
           titles.push(tripResponse.features[i].properties.name);
 
         }
       }
-      initMap();
+      addMarker();
+
       $("#search-input").val("");
     });
 
+    
     // Create URL
     var queryURLForecast =
       "https://api.openweathermap.org/data/2.5/forecast?lat=" +

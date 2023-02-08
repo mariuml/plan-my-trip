@@ -13,19 +13,25 @@
     <link rel="stylesheet" href="./assets/styles/styles.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-        </style>
+    </style>
     <!-- Page Title -->
     <title>Plan My Trip</title>
-    <link rel="icon" type="image/x-icon" href="./assets/media/images/destination-favicon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/media/images/travel-header-icon.png">
+
+    <!-- New map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>    
 </head>
 
 <body>
 
     <!-- Navbar styling -->
     <div id="nav-bar">
-       <header id="title">    
-        <img src="./assets/media/images/travel-header-icon.png" id="header-image"> 
-         Plan My Trip</header></div>
+        <header id="title">
+            <img src="./assets/media/images/travel-header-icon.png" id="header-image">
+            Plan My Trip
+        </header>
+    </div>
 
     <!-- City search-->
     <div class="container-fluid" style="max-width: 1400px">
@@ -44,9 +50,11 @@
                         <div class="input-group">
 
                             <div id="search-box-outline">
-                            <input class="form-input weather-search" type="text" id="search-input"
-                                placeholder="City Name" aria-labelledby="form-heading" aria-controls="today forecast" />
+                                <input class="form-input weather-search" type="text" id="search-input"
+                                    placeholder="City Name" aria-labelledby="form-heading"
+                                    aria-controls="today forecast" />
                             </div>
+
                             <!-- Dropdown for the categories -->
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
@@ -110,8 +118,6 @@
                         <div class="card-header" id="day5-date"> Day 5</div>
                     </div>
                 </div>
-
-
             </section>
         </div>
     </div>
@@ -128,13 +134,12 @@
     <!-- Footer Start -->
 
     <footer>
-<p>  <img src="./assets/media/images/destination-favicon.png"> 
-         Copyright © 2023: Plan My Trip  <br>
-         <a href="https://github.com/mariuml/plan-my-trip.git">
-            <button type="button" id="footer-button"> Visit our Github Repository </button>
+        <p> <img id="footer-icon" src="./assets/media/images/travel-header-icon.png">
+            Copyright © 2023: Plan My Trip <br>
+            <a href="https://github.com/mariuml/plan-my-trip.git">
+                <button type="button" id="footer-button"> Visit our Github Repository </button>
             </a>
-    
-</p>
+        </p>
     </footer>
     <!-- Footer End -->
 
@@ -142,10 +147,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 
     <!-- APIs -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-        defer></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- Bootstrap -->
