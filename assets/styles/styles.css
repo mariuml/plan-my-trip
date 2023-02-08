@@ -54,11 +54,11 @@ aside {
 .dropdown-item {
   width: 100%;
   background-color: white;
-  padding: 0.75rem;
+  padding: 0.75rem; 
   margin-bottom: 3px;
   border-radius: 0.25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.8);
-}
+} 
 
 .dropdown-item:hover {
   background-color: var(--theme-color-1);
