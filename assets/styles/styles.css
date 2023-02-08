@@ -3,6 +3,8 @@
   --theme-color-1: #caf0f8;
   --theme-color-2: #90e0ef;
   --theme-color-3: #03045e;
+  --theme-color-4: #023E8A;
+  --theme-color-5: #0077B6;
 }
 
 /* Main styling */
@@ -75,6 +77,13 @@ aside {
 .history-buttons {
   width: 100%;
   margin-bottom: 5px;
+  background-color: var(--theme-color-5);
+  border-color: var(--theme-color-5);
+}
+
+.history-buttons:hover {
+  background-color: var(--theme-color-4);
+  border-color: var(--theme-color-4);
 }
 
 /* Map styling */
@@ -117,9 +126,19 @@ aside {
   border-color: var(--theme-color-3);
 }
 
+#search-button:hover {
+  background-color: var(--theme-color-4);
+  border-color: var(--theme-color-4);
+}
+
 #dropdownMenu2 {
   background-color: var(--theme-color-3);
   border-color: var(--theme-color-3);
+}
+
+#dropdownMenu2:hover {
+  background-color: var(--theme-color-4);
+  border-color: var(--theme-color-4);
 }
 
 /* Navbar styling */
