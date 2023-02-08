@@ -1,8 +1,14 @@
+// Functionality for nav bar
+$("#title").on("click", function () {
+  window.location.href = "index.html";
+});
+
+// Search History
 // Arrays for city and category history
 var cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || [];
 var categoryHistory = JSON.parse(localStorage.getItem("categoryHistory")) || [];
 
-// function to show 5 previous searches
+// Function to show last 5 searchs on buttons in Search History section
 function showSearch() {
   var lastItem = cityHistory.length - 1;
   for (let i = lastItem; i > lastItem - 5; i--) {
@@ -18,6 +24,7 @@ function showSearch() {
     }
   }
 }
+// Run function as page loads
 showSearch();
 
 // Categories for dropdown menu
@@ -41,7 +48,7 @@ for (var i = 0; i < categoriesArray.length; i++) {
   $("#categories-menu").append(dropdownItem);
 }
 
-// Add a click event to save the value of the dropdown selection
+// Click event to save the value of the dropdown selection
 $(".dropdown-item").on("click", function (event) {
   event.preventDefault();
   // Setting global category variable as user selection
@@ -49,16 +56,18 @@ $(".dropdown-item").on("click", function (event) {
   $("#dropdownMenu2").text(`Selected category: ${$(this).text()}`);
 });
 
-// / Open Weather API
-// Get weather info and longitude and latitude of city
+// Function that retrieves weather information and geological coordinates
+// Displays forecast information and forewards coordinates to be used to populate the map
 function searchCity(city) {
+  // Build current weather query
+  // Create URL
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     openWeatherAPIKey;
 
-  // Ajax for weather
+  // API query for current weather
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -68,7 +77,7 @@ function searchCity(city) {
     var cityLon = weatherResponse.coord.lon;
     var cityLat = weatherResponse.coord.lat;
 
-    // Send coordinates to GoogleMap API to center it;
+    // Send coordinates to Leaflet API to center it;
     sendCoords(cityLat, cityLon);
 
     // Build open trip query
@@ -77,6 +86,7 @@ function searchCity(city) {
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
+
     // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
@@ -92,7 +102,7 @@ function searchCity(city) {
       "&format=geojson&apikey=" +
       openTripAPIkey;
 
-    // Ajax for open trip
+    // API query for open trip
     $.ajax({
       url: openTripAPIURL,
       method: "GET",
@@ -186,7 +196,7 @@ function searchCity(city) {
 
         // Clear previous search
         $("#day" + day + " :nth-child(2)").remove();
-        // $("#day" + day).empty();
+        // Add new forecast
         $("#day" + day).append(forecastDay, forecastBlock);
         day += 1;
       }
