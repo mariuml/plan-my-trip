@@ -3,8 +3,8 @@
   --theme-color-1: #caf0f8; /* Main use: Contrast other colors */
   --theme-color-2: #90e0ef; /* Main use: Headings */
   --theme-color-3: #03045e; /* Main use: Search buttons */
-  --theme-color-4: #023E8A; /* Main use: Hovering over buttons */
-  --theme-color-5: #0077B6; /* Main use: History buttons */
+  --theme-color-4: #023e8a; /* Main use: Hovering over buttons */
+  --theme-color-5: #0077b6; /* Main use: History buttons */
 }
 
 /* Main styling */
@@ -101,8 +101,11 @@ aside {
 }
 
 /* Map pins */
-#mapHeading {
+.pin-heading {
   font-size: 20px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
 }
 
 /* Card styling */
