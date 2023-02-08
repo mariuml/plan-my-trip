@@ -201,7 +201,22 @@ function searchCity(city) {
 // Sea
 $("#search-button").on("click", function (event) {
   event.preventDefault();
-  searchCity($("#search-input").val())
+  var city = $("#search-input").val();
+  searchCity(city);
+
+  // Grab city name from search
+  searchCityVal = city;
+
+  // Add city to cityHistory array
+  cityHistory.push(city);
+  localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
+
+  // Add category to categoryHistory array
+  categoryHistory.push(category);
+  localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
+    // Clear
+    $("#history").empty();
+  showSearch();
 });
 
 
