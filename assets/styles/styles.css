@@ -1,10 +1,10 @@
 /* Themes */
 :root {
-  --theme-color-1: #caf0f8;
-  --theme-color-2: #90e0ef;
-  --theme-color-3: #03045e;
-  --theme-color-4: #023E8A;
-  --theme-color-5: #0077B6;
+  --theme-color-1: #caf0f8; /* Main use: Contrast other colors */
+  --theme-color-2: #90e0ef; /* Main use: Headings */
+  --theme-color-3: #03045e; /* Main use: Search buttons */
+  --theme-color-4: #023E8A; /* Main use: Hovering over buttons */
+  --theme-color-5: #0077B6; /* Main use: History buttons */
 }
 
 /* Main styling */
@@ -46,6 +46,7 @@ aside input {
   border-radius: 2%;
   border: none;
 }
+
 aside {
   margin: 50px auto;
 }
@@ -57,6 +58,10 @@ aside {
   margin-bottom: 3px;
   border-radius: 0.25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.8);
+}
+
+.dropdown-item:hover {
+  background-color: var(--theme-color-1);
 }
 
 #search-form {
