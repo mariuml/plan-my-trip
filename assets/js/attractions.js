@@ -20,9 +20,7 @@ function showSearch() {
   for (let i = lastItem; i > lastItem - 5; i--) {
     if (cityHistory[i] != null) {
       $("#history").append(
-        `<button class="history-buttons btn btn-secondary" data-city=${
-          cityHistory[i]
-        } data-category=${categoryHistory[i]}>${cityHistory[i]} - ${
+        `<button class="history-buttons btn btn-secondary" data-city="${cityHistory[i]}" data-category=${categoryHistory[i]}>${cityHistory[i]} - ${
           categoryHistory[i].charAt(0).toUpperCase() +
           categoryHistory[i].slice(1)
         }</button>`
@@ -79,7 +77,6 @@ function searchCity(city) {
     var latitudeMin = cityLat - 0.01;
     var longitudeMax = cityLon + 0.01;
     var latitudeMax = cityLat + 0.01;
-    console.log(category);
     // Making a call to OpenTrip API based on user input
     var openTripAPIURL =
       "https://api.opentripmap.com/0.1/en/places/bbox?lon_min=" +
@@ -223,7 +220,9 @@ $("#search-button").on("click", function (event) {
 
 // Search from history buttons
 $("#history").on("click", "button.history-buttons", function () {
+
   city = $(this).attr("data-city");
   category = $(this).attr("data-category").toLowerCase();
+
   searchCity(city);
 });
