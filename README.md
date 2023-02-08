@@ -53,5 +53,7 @@ Please refer to the LICENSE in the repo.
 - Extend category section with additional categories and subcategories\
 - Allow users to specify a search radius
 - Include option to limit number of results
+- Add current weather
 - Add calendar to allow search at specific times of the year
 - User feedback form
+- Error message when city entered is not valid

@@ -204,18 +204,21 @@ $("#search-button").on("click", function (event) {
   // Assign to variable for maps.js
   searchCityVal = city;
 
-  // Add city to cityHistory array
-  cityHistory.push(city);
-  localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
+  // Prevent empty search
+  if (city.length > 0) {
+    // Add city to cityHistory array
+    cityHistory.push(city);
+    localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
 
-  // Add category to categoryHistory array
-  categoryHistory.push(category);
-  localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
+    // Add category to categoryHistory array
+    categoryHistory.push(category);
+    localStorage.setItem("categoryHistory", JSON.stringify(categoryHistory));
 
-  // Populate history immediately
-  // Clear
-  $("#history").empty();
-  showSearch();
+    // Populate history immediately
+    // Clear
+    $("#history").empty();
+    showSearch();
+  }
 });
 
 // Search from history buttons
