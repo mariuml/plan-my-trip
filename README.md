@@ -35,7 +35,7 @@ _To view a previous search result, click one of the buttons in the **Search Hist
 
 - [OpenTripMap](https://opentripmap.io/product)
 - [OpenWeather](https://openweathermap.org)
-- [Google Maps](https://developers.google.com/maps)
+- [Leaflet JS](https://leafletjs.com)
 - [Moment](https://momentjs.com/docs/)
 
 ### Images
@@ -53,4 +53,3 @@ Please refer to the LICENSE in the repo.
 - Extend category section with additional categories and subcategories
 - Add calendar to allow search at specific times of the year
 - User feedback form
-- Dynamic map pins
